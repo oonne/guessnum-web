@@ -7,14 +7,14 @@ const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
   const { lang } = await params;
   const dict = await getDictionary(lang as LangCode);
 
+  console.log(dict.link_guess_number_game);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <HeaderNav params={params} />
 
       <nav>
         <ul>
-          <li>{dict.link_home}</li>
-          <li>{dict.link_friend}</li>
           <li>本地环境变量: {process.env.NEXT_PUBLIC_ENV_NAME}</li>
         </ul>
       </nav>

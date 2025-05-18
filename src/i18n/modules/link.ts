@@ -2,7 +2,7 @@
  * 国际化翻译
  */
 const msg: ILangMsgs = {
-  guess_number_game: {
+  link_guess_number_game: {
     en_US: 'Guess Number Game',
     zh_CN: '猜数字游戏',
     zh_TW: '猜數字遊戲',
