@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getDictionary } from '@/i18n';
+import HeaderNav from '@/components/header-nav/header-nav';
 
 const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
   const { lang } = await params;
@@ -8,6 +9,8 @@ const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <HeaderNav params={params} />
+
       <nav>
         <ul>
           <li>{dict.link_home}</li>
