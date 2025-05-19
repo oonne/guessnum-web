@@ -8,7 +8,7 @@ const HeaderNav = async ({ params }: { params: Promise<{ lang: string }> }) => {
   console.log(dict.link_guess_number_game);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg z-50">
+    <header className="fixed top-0 left-0 right-0 bg-[#23272b] text-white shadow-lg z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-center h-16 gap-4">
           <Link
