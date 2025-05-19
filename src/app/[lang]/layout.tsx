@@ -31,9 +31,9 @@ export async function generateMetadata({
   }
 
   return {
-    title: 'Next Demo',
-    description: 'Next 示例项目 description',
-    keywords: ['Next'],
+    title: 'Guess Number Game',
+    description: 'Guess Number Game',
+    keywords: ['Guess Number Game'],
     alternates: {
       canonical,
     },
