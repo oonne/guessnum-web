@@ -24,6 +24,15 @@ const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
       <Link href={`/${lang}/page-1`} className="mt-8 text-blue-600 hover:text-blue-800">
         跳转到页面1
       </Link>
+      <Link href={`/${lang}/page-1`} className="mt-8 text-blue-600 hover:text-blue-800">
+        内容
+      </Link>
+      <Link href={`/${lang}/page-1`} className="mt-8 text-blue-600 hover:text-blue-800">
+        内容2
+      </Link>
+      <Link href={`/${lang}/page-1`} className="mt-8 text-blue-600 hover:text-blue-800">
+        内容3
+      </Link>
     </main>
   );
 };
