@@ -28,9 +28,9 @@ const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenu
   if (!isOpen) return null;
 
   return (
-    <div className="sm:hidden fixed inset-0 top-16 bg-[#23272b] z-40 overflow-y-auto">
+    <div className="sm:hidden fixed inset-0 top-16 bg-gradient-to-b from-[#2c3338] to-[#1a1d21] z-40 overflow-y-auto shadow-xl border-t border-white/10 backdrop-blur-sm">
       <div className="px-4 py-6 space-y-6">
-        <div>
+        <div className="bg-white/5 rounded-lg p-4 shadow-inner">
           <h3 className="text-white font-semibold mb-4 border-b border-white/20 pb-2">
             {mainMenuTitle}
           </h3>
@@ -39,7 +39,7 @@ const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenu
               <Link
                 key={index}
                 href={link.href}
-                className="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+                className="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors text-white shadow-sm"
               >
                 {link.label}
               </Link>
@@ -47,14 +47,14 @@ const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenu
           </nav>
         </div>
 
-        <div>
+        <div className="bg-white/5 rounded-lg p-4 shadow-inner">
           <h3 className="text-white font-semibold mb-4 border-b border-white/20 pb-2">其他功能</h3>
           <nav className="flex flex-col space-y-4">
             {otherLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}
-                className="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+                className="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors text-white shadow-sm"
               >
                 {link.label}
               </Link>
