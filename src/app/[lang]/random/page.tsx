@@ -1,4 +1,4 @@
-import HeaderNav from '@/components/header-nav/guess-number-nav';
+import HeaderNav from '@/components/header-nav/random-nav';
 import RandomChars from '@/components/random-chars/ramdom-chars';
 import { getDictionary } from '@/i18n';
 

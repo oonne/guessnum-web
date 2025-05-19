@@ -9,7 +9,7 @@ import { MobileMenuProps } from './types';
  * 移动端菜单组件
  * 显示移动端下拉菜单内容
  */
-const MobileMenu = ({ isOpen, guessNumberLinks, otherLinks }: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenuProps) => {
   const pathname = usePathname();
 
   useEffect(() => {
@@ -32,10 +32,10 @@ const MobileMenu = ({ isOpen, guessNumberLinks, otherLinks }: MobileMenuProps) =
       <div className="px-4 py-6 space-y-6">
         <div>
           <h3 className="text-white font-semibold mb-4 border-b border-white/20 pb-2">
-            猜数字游戏
+            {mainMenuTitle}
           </h3>
           <nav className="flex flex-col space-y-4">
-            {guessNumberLinks.map((link, index) => (
+            {mainLinks.map((link, index) => (
               <Link
                 key={index}
                 href={link.href}

@@ -11,7 +11,7 @@ const MainNav = async ({ params }: { params: { lang: string } | Promise<{ lang: 
   await getDictionary(lang as LangCode);
 
   // 主导航
-  const guessNumberLinks: LinkType[] = [
+  const mainLinks: LinkType[] = [
     { href: `/${lang}/guess-number-1-10`, label: '1-10' },
     { href: `/${lang}/guess-number-1-100`, label: '1-100' },
     { href: `/${lang}/guess-number-1-1000`, label: '1-1000' },
@@ -22,7 +22,7 @@ const MainNav = async ({ params }: { params: { lang: string } | Promise<{ lang: 
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-[#23272b] text-white shadow-lg z-50">
-      <NavClient lang={lang} guessNumberLinks={guessNumberLinks} otherLinks={otherLinks} />
+      <NavClient lang={lang} mainLinks={mainLinks} otherLinks={otherLinks} mainMenuTitle="猜数字" />
     </header>
   );
 };

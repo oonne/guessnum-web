@@ -19,8 +19,9 @@ export interface MobileMenuButtonProps {
  */
 export interface MobileMenuProps {
   isOpen: boolean;
-  guessNumberLinks: LinkType[];
+  mainLinks: LinkType[];
   otherLinks: LinkType[];
+  mainMenuTitle?: string;
 }
 
 /**
@@ -28,6 +29,7 @@ export interface MobileMenuProps {
  */
 export interface NavClientProps {
   lang: string;
-  guessNumberLinks: LinkType[];
+  mainMenuTitle: string;
+  mainLinks: LinkType[];
   otherLinks: LinkType[];
 }

@@ -11,7 +11,7 @@ import { NavClientProps } from './types';
  * 导航客户端组件
  * 负责处理菜单交互逻辑和呈现PC端导航
  */
-const NavClient = ({ lang, guessNumberLinks, otherLinks }: NavClientProps) => {
+const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -32,9 +32,9 @@ const NavClient = ({ lang, guessNumberLinks, otherLinks }: NavClientProps) => {
               <span className="hidden sm:inline">Guess Number Game</span>
             </Link>
 
-            {/* 猜数字导航 - 仅在PC端显示 */}
+            {/* 主导航 - 仅在PC端显示 */}
             <nav className="hidden sm:flex flex-wrap justify-center gap-4 sm:gap-6">
-              {guessNumberLinks.map((link, index) => (
+              {mainLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.href}
@@ -67,7 +67,12 @@ const NavClient = ({ lang, guessNumberLinks, otherLinks }: NavClientProps) => {
       </div>
 
       {/* 移动端菜单 */}
-      <MobileMenu isOpen={isMenuOpen} guessNumberLinks={guessNumberLinks} otherLinks={otherLinks} />
+      <MobileMenu
+        isOpen={isMenuOpen}
+        mainLinks={mainLinks}
+        otherLinks={otherLinks}
+        mainMenuTitle={mainMenuTitle}
+      />
     </>
   );
 };
