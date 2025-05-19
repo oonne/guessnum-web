@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getDictionary } from '@/i18n';
-import HeaderNav from '@/components/header-nav/guess-number-nav';
+import MainNav from '@/components/header-nav/main-nav';
 
 const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
   const { lang } = await params;
@@ -11,7 +11,7 @@ const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-24 px-4">
-      <HeaderNav params={params} />
+      <MainNav params={params} />
 
       <nav className="w-full max-w-7xl">
         <ul>

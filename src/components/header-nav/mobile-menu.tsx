@@ -1,0 +1,69 @@
+'use client';
+
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { MobileMenuProps } from './types';
+
+/**
+ * 移动端菜单组件
+ * 显示移动端下拉菜单内容
+ */
+const MobileMenu = ({ isOpen, guessNumberLinks, otherLinks }: MobileMenuProps) => {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    // 当路径改变或菜单状态变化时控制body滚动
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen, pathname]);
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="sm:hidden fixed inset-0 top-16 bg-[#23272b] z-40 overflow-y-auto">
+      <div className="px-4 py-6 space-y-6">
+        <div>
+          <h3 className="text-white font-semibold mb-4 border-b border-white/20 pb-2">
+            猜数字游戏
+          </h3>
+          <nav className="flex flex-col space-y-4">
+            {guessNumberLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div>
+          <h3 className="text-white font-semibold mb-4 border-b border-white/20 pb-2">其他功能</h3>
+          <nav className="flex flex-col space-y-4">
+            {otherLinks.map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                className="px-3 py-2 rounded-md bg-white/10 hover:bg-white/20 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default MobileMenu;
