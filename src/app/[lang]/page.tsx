@@ -21,10 +21,6 @@ const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
 
       <Image src="/img/logo.png" alt="logo" width={180} height={180} priority className="my-8" />
 
-      <div className="font-zqk text-4xl text-center">
-        <h1>自定义字体: Hello World</h1>
-      </div>
-
       <Link href={`/${lang}/page-1`} className="mt-8 text-blue-600 hover:text-blue-800">
         跳转到页面1
       </Link>

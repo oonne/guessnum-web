@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { getDictionary } from '@/i18n';
 import Link from 'next/link';
 
@@ -13,26 +14,27 @@ const HeaderNav = async ({ params }: { params: Promise<{ lang: string }> }) => {
         <div className="flex flex-col sm:flex-row justify-between items-center h-16 gap-4">
           <Link
             href={`/${lang}`}
-            className="text-xl font-bold hover:text-blue-200 transition-colors"
+            className="text-xl font-bold hover:text-blue-200 transition-colors flex items-center gap-4"
           >
-            Guess Number Game
+            <Image src="/img/logo.png" alt="logo" width={48} height={48} priority />
+            <span>Guess Number Game</span>
           </Link>
 
           <nav className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <Link
-              href={`/${lang}/game/1-10`}
+              href={`/${lang}/guess-number-1-10`}
               className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm sm:text-base"
             >
               1-10
             </Link>
             <Link
-              href={`/${lang}/game/1-100`}
+              href={`/${lang}/guess-number-1-100`}
               className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm sm:text-base"
             >
               1-100
             </Link>
             <Link
-              href={`/${lang}/game/1-1000`}
+              href={`/${lang}/guess-number-1-1000`}
               className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm sm:text-base"
             >
               1-1000
