@@ -10,13 +10,14 @@ const MainNav = async ({ params }: { params: { lang: string } | Promise<{ lang: 
   const { lang } = await params;
   await getDictionary(lang as LangCode);
 
-  // 定义导航链接
+  // 主导航
   const guessNumberLinks: LinkType[] = [
     { href: `/${lang}/guess-number-1-10`, label: '1-10' },
     { href: `/${lang}/guess-number-1-100`, label: '1-100' },
     { href: `/${lang}/guess-number-1-1000`, label: '1-1000' },
   ];
 
+  // 其他导航
   const otherLinks: LinkType[] = [{ href: `/${lang}/about`, label: '随机数' }];
 
   return (

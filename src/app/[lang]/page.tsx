@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getDictionary } from '@/i18n';
-import MainNav from '@/components/header-nav/main-nav';
+import MainNav from '@/components/header-nav/guess-number-nav';
 
 const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
   const { lang } = await params;
