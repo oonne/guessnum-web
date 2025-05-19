@@ -12,7 +12,7 @@ const Page1 = async ({ params }: { params: Promise<{ lang: string }> }) => {
 
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
         <div>
-          <h1>页面1</h1>
+          <h1>1-10</h1>
           <h2>{dict.link_home}</h2>
         </div>
 
