@@ -15,8 +15,6 @@ const MainNav = async ({ params }: { params: { lang: string } | Promise<{ lang: 
     { href: `/${lang}/guess-number-1-10`, label: '1-10' },
     { href: `/${lang}/guess-number-1-100`, label: '1-100' },
     { href: `/${lang}/guess-number-1-1000`, label: '1-1000' },
-    { href: `/${lang}/guess-number-1-1000`, label: '1-10000' },
-    { href: `/${lang}/guess-number-1-1000`, label: '1-100000' },
   ];
 
   // 其他导航
