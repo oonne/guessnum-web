@@ -1,5 +1,5 @@
 import HeaderNav from '@/components/header-nav/guess-number-nav';
-import RandomChars from '@/components/random-chars/ramdom-chars';
+import GuessNumber from '@/components/guess-number/guess-number';
 import { getDictionary } from '@/i18n';
 
 const Page1 = async ({ params }: { params: Promise<{ lang: string }> }) => {
@@ -17,7 +17,7 @@ const Page1 = async ({ params }: { params: Promise<{ lang: string }> }) => {
         </div>
 
         <div>
-          <RandomChars />
+          <GuessNumber max={10} />
         </div>
       </main>
     </div>

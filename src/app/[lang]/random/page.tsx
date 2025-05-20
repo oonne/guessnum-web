@@ -1,5 +1,5 @@
 import HeaderNav from '@/components/header-nav/random-nav';
-import RandomChars from '@/components/random-chars/ramdom-chars';
+import RandomNumber from '@/components/random-number/random-number';
 import { getDictionary } from '@/i18n';
 
 const Page1 = async ({ params }: { params: Promise<{ lang: string }> }) => {
@@ -17,7 +17,7 @@ const Page1 = async ({ params }: { params: Promise<{ lang: string }> }) => {
         </div>
 
         <div>
-          <RandomChars />
+          <RandomNumber max={10} />
         </div>
       </main>
     </div>

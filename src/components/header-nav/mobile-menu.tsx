@@ -48,7 +48,7 @@ const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenu
         </div>
 
         <div className="bg-white/5 rounded-lg p-4 shadow-inner">
-          <h3 className="text-white font-semibold mb-4 border-b border-white/20 pb-2">其他功能</h3>
+          <h3 className="text-white font-semibold mb-4 border-b border-white/20 pb-2">Other</h3>
           <nav className="flex flex-col space-y-4">
             {otherLinks.map((link, index) => (
               <Link
