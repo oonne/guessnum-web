@@ -4,7 +4,7 @@ import { DEFAULT_LANGUAGE } from '@/i18n/config';
 import '@/style/globals.css';
 
 /*
- * 字体
+ * 默认字体
  */
 const geistSans = Geist({
   variable: '--font-geist-sans',
