@@ -9,10 +9,12 @@ const Page1 = async ({ params }: { params: Promise<{ lang: string }> }) => {
   console.log(dict.link_guess_number_game);
 
   return (
-    <main>
+    <main className="min-h-screen">
       <HeaderNav params={params} />
 
-      <GuessNumber max={10} />
+      <div className="pt-24 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <GuessNumber max={10} />
+      </div>
     </main>
   );
 };
