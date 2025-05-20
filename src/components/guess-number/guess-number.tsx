@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, ChangeEvent } from 'react';
+import { useState, useEffect, useRef, ChangeEvent, useCallback } from 'react';
 import { Utils } from '@/utils';
 
 const { randomWithin } = Utils;
@@ -25,13 +25,28 @@ const GuessNumber = ({ max }: { max: number }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   /**
-   * 副作用：组件加载或max变化时执行
-   * 生成1到max之间的随机数作为目标数字
+   * 初始化游戏状态
+   * 重置范围、目标数字和游戏状态
+   */
+  const initializeGame = useCallback(() => {
+    // 重置最小值为1
+    setMinValue(1);
+    // 重置最大值为传入的max
+    setMaxValue(max);
+    // 重置猜测值为最大值的一半
+    setGuess(Math.floor(max / 2));
+    // 生成新的目标数字 (randomWithin生成0到max-1的数，所以需要+1)
+    setTargetNumber(randomWithin(max) + 1);
+    // 重置游戏状态
+    setHasWon(false);
+  }, [max]);
+
+  /**
+   * 进入页面初始化游戏
    */
   useEffect(() => {
-    // 初始化目标数字 (randomWithin生成0到max-1的数，所以需要+1)
-    setTargetNumber(randomWithin(max) + 1);
-  }, [max]); // 依赖项：只有max变化时才重新执行
+    initializeGame();
+  }, [initializeGame]);
 
   /**
    * 处理输入框值变化
@@ -39,8 +54,8 @@ const GuessNumber = ({ max }: { max: number }) => {
    */
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    // 将输入转换为整数，如果转换失败则使用1
-    setGuess(parseInt(value) || 1);
+    // 将输入转换为整数，如果转换失败则使用最小值
+    setGuess(parseInt(value) || minValue);
   };
 
   /**
@@ -93,7 +108,7 @@ const GuessNumber = ({ max }: { max: number }) => {
         // 已猜中：显示胜利信息
         <div className="flex flex-col items-center">
           <div className="text-6xl font-bold mb-4">🎉</div>
-          <div className="text-2xl font-bold text-green-400 mb-2 font-zqk">猜中了!</div>
+          <div className="text-2xl font-bold text-green-400 mb-2 font-zqk">You got it!</div>
           <div className="text-4xl font-bold text-white mt-4">{targetNumber}</div>
         </div>
       ) : (
@@ -129,6 +144,14 @@ const GuessNumber = ({ max }: { max: number }) => {
           </button>
         </>
       )}
+
+      {/* 重新开始按钮 */}
+      <button
+        onClick={initializeGame}
+        className="mt-8 px-6 py-3 text-lg font-medium text-white bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors"
+      >
+        Restart Game
+      </button>
     </div>
   );
 };
