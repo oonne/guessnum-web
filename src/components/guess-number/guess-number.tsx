@@ -21,6 +21,8 @@ const GuessNumber = ({ max }: { max: number }) => {
   const [maxValue, setMaxValue] = useState<number>(max);
   // 是否已猜中
   const [hasWon, setHasWon] = useState<boolean>(false);
+  // 猜测历史记录
+  const [guessHistory, setGuessHistory] = useState<{ value: number; result: string }[]>([]);
   // 输入框的引用，用于操作DOM
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -39,6 +41,8 @@ const GuessNumber = ({ max }: { max: number }) => {
     setTargetNumber(randomWithin(max) + 1);
     // 重置游戏状态
     setHasWon(false);
+    // 清空猜测历史记录
+    setGuessHistory([]);
   }, [max]);
 
   /**
@@ -84,16 +88,23 @@ const GuessNumber = ({ max }: { max: number }) => {
    * 比较猜测值和目标数字，更新游戏状态
    */
   const handleGuess = () => {
+    let result = '';
     if (guess === targetNumber) {
       // 猜中：设置胜利状态
       setHasWon(true);
+      result = 'Correct!';
     } else if (guess < targetNumber) {
       // 猜小了：更新最小值为当前猜测值，缩小猜测范围
       setMinValue(guess);
+      result = 'Too low';
     } else {
       // 猜大了：更新最大值为当前猜测值，缩小猜测范围
       setMaxValue(guess);
+      result = 'Too high';
     }
+
+    // 添加到猜测历史记录
+    setGuessHistory(prev => [...prev, { value: guess, result }]);
   };
 
   return (
@@ -143,6 +154,32 @@ const GuessNumber = ({ max }: { max: number }) => {
             Guess
           </button>
         </>
+      )}
+
+      {/* 猜测历史记录列表 */}
+      {guessHistory.length > 0 && (
+        <div className="mt-6 w-full max-w-xs">
+          <h3 className="text-lg font-medium text-gray-300 mb-2">
+            Guess History ({guessHistory.length} tries)
+          </h3>
+          <ul className="bg-gray-800 rounded-lg p-3 max-h-60 overflow-y-auto">
+            {guessHistory.map((item, index) => (
+              <li
+                key={index}
+                className="flex justify-between py-1 text-sm border-b border-gray-700 last:border-0"
+              >
+                <span className="text-gray-300">
+                  Try {index + 1}: {item.value}
+                </span>
+                <span
+                  className={`${item.result === 'Correct!' ? 'text-green-400' : item.result === 'Too low' ? 'text-yellow-400' : 'text-red-400'}`}
+                >
+                  {item.result}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
 
       {/* 重新开始按钮 */}
