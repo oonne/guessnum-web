@@ -12,17 +12,22 @@ const RandomNav = async ({ params }: { params: { lang: string } | Promise<{ lang
 
   // 主导航 - 随机数相关链接
   const mainLinks: LinkType[] = [
-    { href: `/${lang}/random-1-10`, label: '随机1-10' },
-    { href: `/${lang}/random-1-100`, label: '随机1-100' },
-    { href: `/${lang}/random-1-1000`, label: '随机1-1000' },
+    { href: `/${lang}/random-1-10`, label: '1-10' },
+    { href: `/${lang}/random-1-100`, label: '1-100' },
+    { href: `/${lang}/random-1-1000`, label: '1-1000' },
   ];
 
   // 其他导航 - 猜数字链接
-  const otherLinks: LinkType[] = [{ href: `/${lang}/`, label: '猜数字' }];
+  const otherLinks: LinkType[] = [{ href: `/${lang}/`, label: 'Guess Number' }];
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-[#23272b] text-white shadow-lg z-50">
-      <NavClient lang={lang} mainLinks={mainLinks} otherLinks={otherLinks} mainMenuTitle="随机数" />
+      <NavClient
+        lang={lang}
+        mainLinks={mainLinks}
+        otherLinks={otherLinks}
+        mainMenuTitle="Random Number"
+      />
     </header>
   );
 };

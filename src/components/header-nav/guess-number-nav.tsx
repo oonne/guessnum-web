@@ -22,7 +22,12 @@ const MainNav = async ({ params }: { params: { lang: string } | Promise<{ lang: 
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-[#23272b] text-white shadow-lg z-50">
-      <NavClient lang={lang} mainLinks={mainLinks} otherLinks={otherLinks} mainMenuTitle="猜数字" />
+      <NavClient
+        lang={lang}
+        mainLinks={mainLinks}
+        otherLinks={otherLinks}
+        mainMenuTitle="Guess Number Game"
+      />
     </header>
   );
 };

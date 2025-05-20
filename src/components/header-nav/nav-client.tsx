@@ -29,16 +29,16 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
               className="text-2xl font-bold hover:text-gray-300 transition-colors flex items-center gap-4 font-zqk"
             >
               <Image src="/img/logo.png" alt="logo" width={48} height={48} priority />
-              <span className="hidden sm:inline">Guess Number Game</span>
+              <span className="hidden sm:inline">{mainMenuTitle}</span>
             </Link>
 
             {/* 主导航 - 仅在PC端显示 */}
-            <nav className="hidden sm:flex flex-wrap justify-center gap-x-4 sm:gap-x-6">
+            <nav className="hidden sm:flex flex-wrap justify-center">
               {mainLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.href}
-                  className="px-3 py-1 my-1.5 hover:text-white/80 transition-colors text-sm sm:text-base"
+                  className="px-3 py-1 my-1.5 hover:text-white/80 transition-colors text-sm sm:text-base font-bold"
                 >
                   {link.label}
                 </Link>
