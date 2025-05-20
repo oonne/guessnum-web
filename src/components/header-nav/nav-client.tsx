@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import MenuButton from './menu-button';
@@ -13,14 +13,35 @@ import { NavClientProps } from './types';
  */
 const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // 动态设置导航栏高度
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (navRef.current) {
+        const height = navRef.current.offsetHeight;
+        document.documentElement.style.setProperty('--header-height', `${height}px`);
+      }
+    };
+
+    // 初始设置
+    updateHeaderHeight();
+
+    // 监听窗口大小变化
+    window.addEventListener('resize', updateHeaderHeight);
+
+    return () => {
+      window.removeEventListener('resize', updateHeaderHeight);
+    };
+  }, []);
+
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={navRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-between items-center py-4">
           <div className="flex flex-wrap items-center gap-4 mb-2 sm:mb-0">
             {/* LOGO */}

@@ -28,7 +28,7 @@ const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenu
   if (!isOpen) return null;
 
   return (
-    <div className="sm:hidden fixed inset-0 top-16 bg-gradient-to-b from-[#2c3338] to-[#1a1d21] z-40 overflow-y-auto shadow-xl border-t border-white/10 backdrop-blur-sm">
+    <div className="sm:hidden fixed inset-0 top-[var(--header-height,64px)] bg-gradient-to-b from-[#2c3338] to-[#1a1d21] z-40 overflow-y-auto shadow-xl border-t border-white/10 backdrop-blur-sm">
       <div className="px-4 py-6 space-y-6">
         <div className="bg-white/5 rounded-lg p-4 shadow-inner">
           <h3 className="text-white font-semibold mb-4 border-b border-white/20 pb-2">
