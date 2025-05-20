@@ -6,21 +6,14 @@ const Page1 = async ({ params }: { params: Promise<{ lang: string }> }) => {
   const { lang } = await params;
   const dict = await getDictionary(lang as LangCode);
 
+  console.log(dict.link_guess_number_game);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <main>
       <HeaderNav params={params} />
 
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div>
-          <h1>1-10</h1>
-          <h2>{dict.link_home}</h2>
-        </div>
-
-        <div>
-          <GuessNumber max={10} />
-        </div>
-      </main>
-    </div>
+      <GuessNumber max={10} />
+    </main>
   );
 };
 
