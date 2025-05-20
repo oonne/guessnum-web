@@ -21,8 +21,8 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
   return (
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center gap-4">
+        <div className="flex flex-wrap justify-between items-center py-4">
+          <div className="flex flex-wrap items-center gap-4 mb-2 sm:mb-0">
             {/* LOGO */}
             <Link
               href={`/${lang}`}
@@ -33,12 +33,12 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
             </Link>
 
             {/* 主导航 - 仅在PC端显示 */}
-            <nav className="hidden sm:flex flex-wrap justify-center gap-4 sm:gap-6">
+            <nav className="hidden sm:flex flex-wrap justify-center gap-x-4 sm:gap-x-6">
               {mainLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.href}
-                  className="px-3 py-1 hover:text-white/80 transition-colors text-sm sm:text-base"
+                  className="px-3 py-1 my-1.5 hover:text-white/80 transition-colors text-sm sm:text-base"
                 >
                   {link.label}
                 </Link>
@@ -46,14 +46,14 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
             </nav>
           </div>
 
-          <div className="flex items-center">
+          <div className="flex flex-wrap items-center mb-2 sm:mb-0">
             {/* 其他导航 - 仅在PC端显示 */}
-            <nav className="hidden sm:flex flex-wrap justify-center gap-4 sm:gap-6">
+            <nav className="hidden sm:flex flex-wrap justify-center gap-x-4 sm:gap-x-6">
               {otherLinks.map((link, index) => (
                 <Link
                   key={index}
                   href={link.href}
-                  className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm sm:text-base"
+                  className="px-3 py-1 my-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm sm:text-base"
                 >
                   {link.label}
                 </Link>
