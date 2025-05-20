@@ -13,8 +13,8 @@ const GuessNumber = ({ max }: { max: number }) => {
   // === 状态管理 ===
   // 目标数字：需要猜测的随机数
   const [targetNumber, setTargetNumber] = useState<number>(0);
-  // 当前猜测值：用户输入的猜测数字，初始值设为最大值的一半
-  const [guess, setGuess] = useState<number>(Math.floor(max / 2));
+  // 当前猜测值：用户输入的猜测数字，初始值为空
+  const [guess, setGuess] = useState<number | null>(null);
   // 最小值：猜测范围的下限，初始为1
   const [minValue, setMinValue] = useState<number>(1);
   // 最大值：猜测范围的上限，初始为传入的max
@@ -35,8 +35,8 @@ const GuessNumber = ({ max }: { max: number }) => {
     setMinValue(1);
     // 重置最大值为传入的max
     setMaxValue(max);
-    // 重置猜测值为最大值的一半
-    setGuess(Math.floor(max / 2));
+    // 重置猜测值为空
+    setGuess(null);
     // 生成新的目标数字 (randomWithin生成0到max-1的数，所以需要+1)
     setTargetNumber(randomWithin(max) + 1);
     // 重置游戏状态
@@ -59,8 +59,15 @@ const GuessNumber = ({ max }: { max: number }) => {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
+    // 当输入为空时，设置为null
+    if (value === '') {
+      setGuess(null);
+      return;
+    }
+
     // 将输入转换为整数，如果转换失败则使用最小值
-    setGuess(parseInt(value) || minValue);
+    const parsedValue = parseInt(value);
+    setGuess(parsedValue || minValue);
   };
 
   /**
@@ -68,6 +75,11 @@ const GuessNumber = ({ max }: { max: number }) => {
    * 确保输入值是整数且在有效范围内
    */
   const handleInputBlur = () => {
+    // 如果guess为null，保持为null
+    if (guess === null) {
+      return;
+    }
+
     // 确保输入的是整数（使用Math.floor取整）
     let newGuess = Math.floor(guess);
 
@@ -89,6 +101,11 @@ const GuessNumber = ({ max }: { max: number }) => {
    * 比较猜测值和目标数字，更新游戏状态
    */
   const handleGuess = () => {
+    // 如果guess为null，不进行猜测
+    if (guess === null) {
+      return;
+    }
+
     handleInputBlur();
 
     // 如果跟上一次的猜测值相同，则不进行处理
@@ -158,10 +175,11 @@ const GuessNumber = ({ max }: { max: number }) => {
             <input
               ref={inputRef}
               type="number"
-              value={guess}
+              value={guess === null ? '' : guess}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
               className="w-28 h-20 text-center text-3xl font-bold mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="?"
             />
 
             {/* 最大值 */}
