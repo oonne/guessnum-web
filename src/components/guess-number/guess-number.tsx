@@ -5,7 +5,7 @@ const { randomWithin } = Utils;
 
 const GuessNumber = async ({ max }: { max: number }) => {
   await connection();
-  const number = randomWithin(max);
+  const number = randomWithin(max) + 1;
 
   return <div>{number}</div>;
 };

@@ -17,7 +17,7 @@ const Page1 = async ({ params }: { params: Promise<{ lang: string }> }) => {
         </div>
 
         <div>
-          <RandomNumber max={10} />
+          <RandomNumber max={2} />
         </div>
       </main>
     </div>
