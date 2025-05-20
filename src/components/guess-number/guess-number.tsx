@@ -14,7 +14,7 @@ const GuessNumber = ({ max }: { max: number }) => {
   // 目标数字：需要猜测的随机数
   const [targetNumber, setTargetNumber] = useState<number>(0);
   // 当前猜测值：用户输入的猜测数字，初始值为空
-  const [guess, setGuess] = useState<number | null>(null);
+  const [userGuessValue, setUserGuessValue] = useState<number | null>(null);
   // 最小值：猜测范围的下限，初始为1
   const [minValue, setMinValue] = useState<number>(1);
   // 最大值：猜测范围的上限，初始为传入的max
@@ -36,7 +36,7 @@ const GuessNumber = ({ max }: { max: number }) => {
     // 重置最大值为传入的max
     setMaxValue(max);
     // 重置猜测值为空
-    setGuess(null);
+    setUserGuessValue(null);
     // 生成新的目标数字 (randomWithin生成0到max-1的数，所以需要+1)
     setTargetNumber(randomWithin(max) + 1);
     // 重置游戏状态
@@ -61,13 +61,13 @@ const GuessNumber = ({ max }: { max: number }) => {
 
     // 当输入为空时，设置为null
     if (value === '') {
-      setGuess(null);
+      setUserGuessValue(null);
       return;
     }
 
     // 将输入转换为整数，如果转换失败则使用最小值
     const parsedValue = parseInt(value);
-    setGuess(parsedValue || minValue);
+    setUserGuessValue(parsedValue || minValue);
   };
 
   /**
@@ -75,13 +75,13 @@ const GuessNumber = ({ max }: { max: number }) => {
    * 确保输入值是整数且在有效范围内
    */
   const handleInputBlur = () => {
-    // 如果guess为null，保持为null
-    if (guess === null) {
+    // 如果userGuessValue为null，保持为null
+    if (userGuessValue === null) {
       return;
     }
 
     // 确保输入的是整数（使用Math.floor取整）
-    let newGuess = Math.floor(guess);
+    let newGuess = Math.floor(userGuessValue);
 
     // 确保猜测值不小于当前最小值
     if (newGuess < minValue) {
@@ -93,7 +93,7 @@ const GuessNumber = ({ max }: { max: number }) => {
     }
 
     // 更新猜测值为处理后的合法值
-    setGuess(newGuess);
+    setUserGuessValue(newGuess);
   };
 
   /**
@@ -101,35 +101,35 @@ const GuessNumber = ({ max }: { max: number }) => {
    * 比较猜测值和目标数字，更新游戏状态
    */
   const handleGuess = () => {
-    // 如果guess为null，不进行猜测
-    if (guess === null) {
+    // 如果userGuessValue为null，不进行猜测
+    if (userGuessValue === null) {
       return;
     }
 
     handleInputBlur();
 
     // 如果跟上一次的猜测值相同，则不进行处理
-    if (guess === guessHistory[guessHistory.length - 1]?.value) {
+    if (userGuessValue === guessHistory[guessHistory.length - 1]?.value) {
       return;
     }
 
     let result = '';
-    if (guess === targetNumber) {
+    if (userGuessValue === targetNumber) {
       // 猜中：设置胜利状态
       setHasWon(true);
       result = 'Correct!';
-    } else if (guess < targetNumber) {
+    } else if (userGuessValue < targetNumber) {
       // 猜小了：更新最小值为当前猜测值，缩小猜测范围
-      setMinValue(guess);
+      setMinValue(userGuessValue);
       result = 'Too low';
     } else {
       // 猜大了：更新最大值为当前猜测值，缩小猜测范围
-      setMaxValue(guess);
+      setMaxValue(userGuessValue);
       result = 'Too high';
     }
 
     // 添加到猜测历史记录
-    setGuessHistory(prev => [...prev, { value: guess, result }]);
+    setGuessHistory(prev => [...prev, { value: userGuessValue, result }]);
   };
 
   return (
@@ -175,7 +175,7 @@ const GuessNumber = ({ max }: { max: number }) => {
             <input
               ref={inputRef}
               type="number"
-              value={guess === null ? '' : guess}
+              value={userGuessValue === null ? '' : userGuessValue}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
               className="w-28 h-20 text-center text-3xl font-bold mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
