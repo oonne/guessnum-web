@@ -161,6 +161,9 @@ const GuessNumber = ({ max }: { max: number }) => {
     return true;
   }, [userGuessValue, minValue, maxValue, guessHistory]);
 
+  /*
+   * 界面内容
+   */
   return (
     <div className="flex flex-col items-center justify-center w-full p-6 bg-[#23272b] border border-gray-700 rounded-lg shadow-lg">
       {/* 隐藏number类型输入框的步进器 */}
@@ -190,7 +193,7 @@ const GuessNumber = ({ max }: { max: number }) => {
       `}</style>
 
       {/* 标题：显示猜数字范围 */}
-      <h1 className="text-4xl font-bold mb-8 text-center text-white">
+      <h1 className="text-2xl md:text-4xl font-bold mb-4 md:mb-8 text-center text-white">
         Guess a number between 1 and {max}
       </h1>
 
@@ -198,18 +201,24 @@ const GuessNumber = ({ max }: { max: number }) => {
       {hasWon ? (
         // 已猜中：显示胜利信息
         <div className="flex flex-col items-center">
-          <div className="text-6xl font-bold mb-4">🎉</div>
-          <div className="text-2xl font-bold text-green-400 mb-2 font-zqk">You got it!</div>
-          <div className="text-4xl font-bold text-white mt-4">{targetNumber}</div>
+          <div className="text-4xl md:text-6xl font-bold mb-4">🎉</div>
+          <div className="text-xl md:text-2xl font-bold text-green-400 mb-2 font-zqk">
+            You got it!
+          </div>
+          <div className="text-3xl md:text-4xl font-bold text-white mt-4">{targetNumber}</div>
         </div>
       ) : (
         // 未猜中：显示猜测界面
-        <div className="bg-gray-800 py-8 rounded-lg flex flex-col items-center">
+        <div className="bg-gray-800 py-4 md:py-8 px-2 md:px-6 rounded-lg flex flex-col items-center w-full overflow-x-auto">
           {/* 猜测区域：显示当前范围和输入框 */}
-          <div className="flex items-center justify-center w-full mb-6">
+          <div className="flex items-center justify-center w-full mb-4 md:mb-6">
             {/* 最小值 */}
-            <span className="text-6xl font-medium text-gray-300 w-48 text-center">{minValue}</span>
-            <span className="mx-2 text-6xl text-gray-300 w-12">≤</span>
+            <span className="text-2xl sm:text-4xl md:text-6xl font-medium text-gray-300 w-16 sm:w-24 md:w-48 text-center">
+              {minValue}
+            </span>
+            <span className="mx-1 md:mx-2 text-2xl sm:text-4xl md:text-6xl text-gray-300 w-6 md:w-12">
+              ≤
+            </span>
 
             {/* 猜测输入框 */}
             <input
@@ -218,20 +227,24 @@ const GuessNumber = ({ max }: { max: number }) => {
               value={userGuessValue === null ? '' : userGuessValue}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
-              className="w-48 h-32 text-center text-6xl font-bold mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-20 sm:w-32 md:w-48 h-16 sm:h-24 md:h-32 text-center text-2xl sm:text-4xl md:text-6xl font-bold mx-1 md:mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="?"
             />
 
             {/* 最大值 */}
-            <span className="mx-2 text-6xl text-gray-300 w-12">≤</span>
-            <span className="text-6xl font-medium text-gray-300 w-48 text-center">{maxValue}</span>
+            <span className="mx-1 md:mx-2 text-2xl sm:text-4xl md:text-6xl text-gray-300 w-6 md:w-12">
+              ≤
+            </span>
+            <span className="text-2xl sm:text-4xl md:text-6xl font-medium text-gray-300 w-16 sm:w-24 md:w-48 text-center">
+              {maxValue}
+            </span>
           </div>
 
           {/* 猜测按钮 */}
           <button
             onClick={handleGuess}
             disabled={!isValidGuess()}
-            className={`w-48 py-6 text-4xl text-center font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors btn-confirm`}
+            className={`w-32 md:w-48 py-3 md:py-6 text-xl md:text-4xl text-center font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors btn-confirm`}
           >
             Confirm
           </button>
@@ -240,15 +253,15 @@ const GuessNumber = ({ max }: { max: number }) => {
 
       {/* 猜测历史记录列表 */}
       {guessHistory.length > 0 && (
-        <div className="mt-6 w-full max-w-xs">
-          <h3 className="text-lg font-medium text-gray-300 mb-2">
+        <div className="mt-4 md:mt-6 w-full max-w-xs">
+          <h3 className="text-base md:text-lg font-medium text-gray-300 mb-2">
             Guess History ({guessHistory.length} tries)
           </h3>
           <ul className="bg-gray-800 rounded-lg p-3 max-h-60 overflow-y-auto">
             {guessHistory.map((item, index) => (
               <li
                 key={index}
-                className="flex justify-between py-1 text-sm border-b border-gray-700 last:border-0"
+                className="flex justify-between py-1 text-xs md:text-sm border-b border-gray-700 last:border-0"
               >
                 <span className="text-gray-300">
                   Try {index + 1}: {item.value}
@@ -268,7 +281,7 @@ const GuessNumber = ({ max }: { max: number }) => {
       {guessHistory.length >= 1 && (
         <button
           onClick={initializeGame}
-          className="mt-8 px-6 py-3 text-lg font-medium text-white bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors"
+          className="mt-4 md:mt-8 px-4 md:px-6 py-2 md:py-3 text-base md:text-lg font-medium text-white bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors"
         >
           Restart Game
         </button>
