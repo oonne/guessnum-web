@@ -89,6 +89,13 @@ const GuessNumber = ({ max }: { max: number }) => {
    * 比较猜测值和目标数字，更新游戏状态
    */
   const handleGuess = () => {
+    handleInputBlur();
+
+    // 如果跟上一次的猜测值相同，则不进行处理
+    if (guess === guessHistory[guessHistory.length - 1]?.value) {
+      return;
+    }
+
     let result = '';
     if (guess === targetNumber) {
       // 猜中：设置胜利状态
