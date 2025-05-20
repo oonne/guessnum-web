@@ -132,6 +132,35 @@ const GuessNumber = ({ max }: { max: number }) => {
     setGuessHistory(prev => [...prev, { value: userGuessValue, result }]);
   };
 
+  /**
+   * 判断当前猜测值是否合法
+   * 合法定义：整数、大于等于最小值、小于等于最大值、跟上一次猜测的数字不一样
+   */
+  const isValidGuess = useCallback(() => {
+    // 如果没有输入值，返回false
+    if (userGuessValue === null) {
+      return false;
+    }
+
+    // 必须是整数
+    if (!Number.isInteger(userGuessValue)) {
+      return false;
+    }
+
+    // 必须在范围内
+    if (userGuessValue < minValue || userGuessValue > maxValue) {
+      return false;
+    }
+
+    // 不能与上一次猜测值相同
+    const lastGuess = guessHistory.length > 0 ? guessHistory[guessHistory.length - 1].value : null;
+    if (userGuessValue === lastGuess) {
+      return false;
+    }
+
+    return true;
+  }, [userGuessValue, minValue, maxValue, guessHistory]);
+
   return (
     <div className="flex flex-col items-center justify-center w-full p-6 bg-[#23272b] border border-gray-700 rounded-lg shadow-lg">
       {/* 隐藏number类型输入框的步进器 */}
@@ -146,6 +175,17 @@ const GuessNumber = ({ max }: { max: number }) => {
         /* Firefox */
         input[type='number'] {
           -moz-appearance: textfield;
+        }
+
+        /* 按钮样式 */
+        .btn-confirm {
+          cursor: pointer;
+        }
+
+        .btn-confirm:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+          background-color: #4a5568;
         }
       `}</style>
 
@@ -190,7 +230,8 @@ const GuessNumber = ({ max }: { max: number }) => {
           {/* 猜测按钮 */}
           <button
             onClick={handleGuess}
-            className="px-10 py-5 text-2xl font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors"
+            disabled={!isValidGuess()}
+            className={`px-10 py-5 text-2xl font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors btn-confirm`}
           >
             Confirm
           </button>
