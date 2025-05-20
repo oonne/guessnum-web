@@ -18,7 +18,7 @@ const MainNav = async ({ params }: { params: { lang: string } | Promise<{ lang: 
   ];
 
   // 其他导航
-  const otherLinks: LinkType[] = [{ href: `/${lang}/random`, label: '随机数' }];
+  const otherLinks: LinkType[] = [{ href: `/${lang}/random`, label: 'Random Number' }];
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-[#23272b] text-white shadow-lg z-50">

@@ -26,7 +26,7 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
             {/* LOGO */}
             <Link
               href={`/${lang}`}
-              className="text-xl font-bold hover:text-gray-300 transition-colors flex items-center gap-4"
+              className="text-xl font-bold hover:text-gray-300 transition-colors flex items-center gap-4 font-zqk"
             >
               <Image src="/img/logo.png" alt="logo" width={48} height={48} priority />
               <span className="hidden sm:inline">Guess Number Game</span>
@@ -38,7 +38,7 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
                 <Link
                   key={index}
                   href={link.href}
-                  className="px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-sm sm:text-base"
+                  className="px-3 py-1 hover:text-white/80 transition-colors text-sm sm:text-base"
                 >
                   {link.label}
                 </Link>
