@@ -108,7 +108,7 @@ const GuessNumber = ({ max }: { max: number }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto p-6 bg-[#23272b] border border-gray-700 rounded-lg shadow-lg">
+    <div className="flex flex-col items-center justify-center w-full p-6 bg-[#23272b] border border-gray-700 rounded-lg shadow-lg">
       {/* 标题：显示猜数字范围 */}
       <h1 className="text-3xl font-bold mb-8 text-center text-white">
         Guess a number between 1 and {max}
@@ -151,7 +151,7 @@ const GuessNumber = ({ max }: { max: number }) => {
             onClick={handleGuess}
             className="px-8 py-4 text-xl font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors"
           >
-            Guess
+            Confirm
           </button>
         </>
       )}
