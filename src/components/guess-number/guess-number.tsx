@@ -58,6 +58,7 @@ const GuessNumber = ({ max }: { max: number }) => {
    */
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+
     // 将输入转换为整数，如果转换失败则使用最小值
     setGuess(parseInt(value) || minValue);
   };
@@ -109,6 +110,21 @@ const GuessNumber = ({ max }: { max: number }) => {
 
   return (
     <div className="flex flex-col items-center justify-center w-full p-6 bg-[#23272b] border border-gray-700 rounded-lg shadow-lg">
+      {/* 隐藏number类型输入框的步进器 */}
+      <style jsx>{`
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        /* Firefox */
+        input[type='number'] {
+          -moz-appearance: textfield;
+        }
+      `}</style>
+
       {/* 标题：显示猜数字范围 */}
       <h1 className="text-3xl font-bold mb-8 text-center text-white">
         Guess a number between 1 and {max}
@@ -128,8 +144,8 @@ const GuessNumber = ({ max }: { max: number }) => {
           {/* 猜测区域：显示当前范围和输入框 */}
           <div className="flex items-center justify-center w-full mb-6">
             {/* 最小值 */}
-            <span className="text-xl font-medium text-gray-300">{minValue}</span>
-            <span className="mx-2 text-xl text-gray-300">≤</span>
+            <span className="text-2xl font-medium text-gray-300">{minValue}</span>
+            <span className="mx-2 text-2xl text-gray-300">≤</span>
 
             {/* 猜测输入框 */}
             <input
@@ -138,18 +154,18 @@ const GuessNumber = ({ max }: { max: number }) => {
               value={guess}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
-              className="w-24 h-16 text-center text-2xl font-bold mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-28 h-20 text-center text-3xl font-bold mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
             {/* 最大值 */}
-            <span className="mx-2 text-xl text-gray-300">≤</span>
-            <span className="text-xl font-medium text-gray-300">{maxValue}</span>
+            <span className="mx-2 text-2xl text-gray-300">≤</span>
+            <span className="text-2xl font-medium text-gray-300">{maxValue}</span>
           </div>
 
           {/* 猜测按钮 */}
           <button
             onClick={handleGuess}
-            className="px-8 py-4 text-xl font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors"
+            className="px-10 py-5 text-2xl font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors"
           >
             Confirm
           </button>
