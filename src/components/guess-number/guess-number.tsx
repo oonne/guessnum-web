@@ -190,7 +190,7 @@ const GuessNumber = ({ max }: { max: number }) => {
       `}</style>
 
       {/* 标题：显示猜数字范围 */}
-      <h1 className="text-3xl font-bold mb-8 text-center text-white">
+      <h1 className="text-4xl font-bold mb-8 text-center text-white">
         Guess a number between 1 and {max}
       </h1>
 
@@ -204,12 +204,12 @@ const GuessNumber = ({ max }: { max: number }) => {
         </div>
       ) : (
         // 未猜中：显示猜测界面
-        <>
+        <div className="bg-gray-800 py-8 rounded-lg flex flex-col items-center">
           {/* 猜测区域：显示当前范围和输入框 */}
           <div className="flex items-center justify-center w-full mb-6">
             {/* 最小值 */}
-            <span className="text-2xl font-medium text-gray-300">{minValue}</span>
-            <span className="mx-2 text-2xl text-gray-300">≤</span>
+            <span className="text-6xl font-medium text-gray-300 w-48 text-center">{minValue}</span>
+            <span className="mx-2 text-6xl text-gray-300 w-12">≤</span>
 
             {/* 猜测输入框 */}
             <input
@@ -218,24 +218,24 @@ const GuessNumber = ({ max }: { max: number }) => {
               value={userGuessValue === null ? '' : userGuessValue}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
-              className="w-28 h-20 text-center text-3xl font-bold mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-48 h-32 text-center text-6xl font-bold mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="?"
             />
 
             {/* 最大值 */}
-            <span className="mx-2 text-2xl text-gray-300">≤</span>
-            <span className="text-2xl font-medium text-gray-300">{maxValue}</span>
+            <span className="mx-2 text-6xl text-gray-300 w-12">≤</span>
+            <span className="text-6xl font-medium text-gray-300 w-48 text-center">{maxValue}</span>
           </div>
 
           {/* 猜测按钮 */}
           <button
             onClick={handleGuess}
             disabled={!isValidGuess()}
-            className={`px-10 py-5 text-2xl font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors btn-confirm`}
+            className={`w-48 py-6 text-4xl text-center font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors btn-confirm`}
           >
             Confirm
           </button>
-        </>
+        </div>
       )}
 
       {/* 猜测历史记录列表 */}
@@ -265,12 +265,14 @@ const GuessNumber = ({ max }: { max: number }) => {
       )}
 
       {/* 重新开始按钮 */}
-      <button
-        onClick={initializeGame}
-        className="mt-8 px-6 py-3 text-lg font-medium text-white bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors"
-      >
-        Restart Game
-      </button>
+      {guessHistory.length >= 1 && (
+        <button
+          onClick={initializeGame}
+          className="mt-8 px-6 py-3 text-lg font-medium text-white bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors"
+        >
+          Restart Game
+        </button>
+      )}
     </div>
   );
 };
