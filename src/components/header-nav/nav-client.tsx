@@ -50,7 +50,7 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
               className="text-2xl font-bold hover:text-gray-300 transition-colors flex items-center gap-4 font-zqk"
             >
               <Image src="/img/logo.png" alt="logo" width={48} height={48} priority />
-              <span className="hidden sm:inline">{mainMenuTitle}</span>
+              <span>{mainMenuTitle}</span>
             </Link>
 
             {/* 主导航 - 仅在PC端显示 */}
