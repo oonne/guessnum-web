@@ -261,22 +261,23 @@ const GuessNumber = ({ max }: { max: number }) => {
             {guessHistory.map((item, index) => (
               <li
                 key={index}
-                className="flex justify-between py-2 text-sm md:text-base hover:bg-gray-700 px-3 transition-colors rounded-md"
+                className="flex items-center justify-center py-2 text-sm md:text-base transition-colors rounded-md"
               >
-                <span className="text-gray-300 font-medium">
-                  Try {index + 1}: <span className="text-white">{item.value}</span>
-                </span>
-                <span
-                  className={`font-semibold ${
-                    item.result === 'Correct!'
-                      ? 'text-green-400'
-                      : item.result === 'Too low'
-                        ? 'text-yellow-400'
-                        : 'text-red-400'
-                  }`}
-                >
-                  {item.result}
-                </span>
+                <div className="flex items-center justify-around w-3/5 mx-auto">
+                  <span className="text-gray-300 font-medium">Try {index + 1}:</span>
+                  <span className="text-white font-medium">{item.value}</span>
+                  <span
+                    className={`font-semibold ${
+                      item.result === 'Correct!'
+                        ? 'text-green-400'
+                        : item.result === 'Too low'
+                          ? 'text-yellow-400'
+                          : 'text-red-400'
+                    }`}
+                  >
+                    {item.result}
+                  </span>
+                </div>
               </li>
             ))}
           </ul>
