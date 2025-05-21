@@ -130,6 +130,9 @@ const GuessNumber = ({ max }: { max: number }) => {
 
     // 添加到猜测历史记录
     setGuessHistory(prev => [...prev, { value: userGuessValue, result }]);
+
+    // 清空输入框
+    setUserGuessValue(null);
   };
 
   /**
