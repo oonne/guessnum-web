@@ -1,20 +1,36 @@
 /*
- * 国际化翻译
+ * 链接
  */
 const msg: ILangMsgs = {
-  link_guess_number_game: {
-    en_US: 'Guess Number Game',
-    zh_CN: '猜数字游戏',
-    zh_TW: '猜數字遊戲',
-    es_ES: 'Juego de adivinar números',
-    fr_FR: 'Jeu de devinette de nombres',
-    ru_RU: 'Игра в угадывание чисел',
-    pt_PT: 'Jogo de adivinhação de números',
-    de_DE: 'Zahlenspiel',
-    ja_JP: '数字当てゲーム',
-    it_IT: 'Gioco di adivinare i numeri',
-    ko_KR: '숫자 맞추기 게임',
-    vi_VN: 'Trò chơi đoán số',
+  // 导航栏：猜数字
+  link_guess_number: {
+    en_US: 'Guess Number',
+    zh_CN: '猜数字',
+    zh_TW: '猜數字',
+    es_ES: 'Adivinar números',
+    fr_FR: 'Deviner les nombres',
+    ru_RU: 'Угадать число',
+    pt_PT: 'Adivinhar números',
+    de_DE: 'Erraten der Zahl',
+    ja_JP: '数字を当てる',
+    it_IT: 'Indovinare il numero',
+    ko_KR: '숫자 맞추기',
+    vi_VN: 'Đoán số',
+  },
+  // 导航栏：随机数
+  link_random_number: {
+    en_US: 'Random Number',
+    zh_CN: '随机数',
+    zh_TW: '隨機數',
+    es_ES: 'Número aleatorio',
+    fr_FR: 'Nombre aléatoire',
+    ru_RU: 'Случайное число',
+    pt_PT: 'Número aleatório',
+    de_DE: 'Zufällige Zahl',
+    ja_JP: 'ランダムな数字',
+    it_IT: 'Numero casuale',
+    ko_KR: '랜덤 숫자',
+    vi_VN: 'Số ngẫu nhiên',
   },
 };
 

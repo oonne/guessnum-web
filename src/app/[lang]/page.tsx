@@ -11,7 +11,7 @@ const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
 
   return (
     <PageLayout header={<HeaderNav params={params} />}>
-      <GuessNumber max={10} />
+      <GuessNumber max={100} />
     </PageLayout>
   );
 };
