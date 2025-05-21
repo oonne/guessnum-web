@@ -8,10 +8,9 @@ const { sleep, randomWithin } = Utils;
 /**
  * 随机数生成组件客户端部分
  * @param max 随机数的最大范围
- * @param initialNumber 初始随机数
  */
-const RandomNumber = ({ max, initialNumber }: { max: number; initialNumber: number }) => {
-  const [number, setNumber] = useState(initialNumber);
+const RandomNumber = ({ max }: { max: number }) => {
+  const [number, setNumber] = useState(randomWithin(max) + 1);
   const [copied, setCopied] = useState(false);
 
   // 复制随机数到剪贴板
