@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { Utils } from '@/utils/index';
 
 const { sleep, randomWithin } = Utils;
@@ -9,13 +9,13 @@ const { sleep, randomWithin } = Utils;
  * 随机数生成组件客户端部分
  * @param max 随机数的最大范围
  */
-const RandomNumber = ({ max }: { max: number }) => {
-  const [number, setNumber] = useState(randomWithin(max) + 1);
+const RandomNumber = ({ max, initialNumber }: { max: number; initialNumber: number }) => {
+  const [number, setNumber] = useState(initialNumber);
   const [copied, setCopied] = useState(false);
 
   // 复制随机数到剪贴板
   const copyToClipboard = async () => {
-    navigator.clipboard.writeText(number.toString());
+    navigator.clipboard.writeText((number ?? 0).toString());
     setCopied(true);
 
     // 2秒后重置复制状态
@@ -27,10 +27,6 @@ const RandomNumber = ({ max }: { max: number }) => {
   const regenerateNumber = useCallback(() => {
     setNumber(randomWithin(max) + 1);
   }, [max]);
-
-  useEffect(() => {
-    regenerateNumber();
-  }, [regenerateNumber]);
 
   return (
     <div className="flex flex-col items-center justify-center w-full p-6 bg-[#23272b] border border-gray-700 rounded-lg shadow-lg">

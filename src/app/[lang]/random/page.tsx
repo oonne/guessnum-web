@@ -1,6 +1,6 @@
 import { getDictionary } from '@/i18n';
 import HeaderNav from '@/components/header-nav/random-nav';
-import RandomNumber from '@/components/random-number/random-number';
+import RandomNumber from '@/components/random-number/random-number-container';
 import PageLayout from '@/components/layout/page-layout';
 
 const Page1 = async ({ params }: { params: Promise<{ lang: string }> }) => {
