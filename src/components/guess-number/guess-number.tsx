@@ -201,11 +201,9 @@ const GuessNumber = ({ max }: { max: number }) => {
       {hasWon ? (
         // 已猜中：显示胜利信息
         <div className="flex flex-col items-center">
-          <div className="text-4xl md:text-6xl font-bold mb-4">🎉</div>
-          <div className="text-xl md:text-2xl font-bold text-green-400 mb-2 font-zqk">
-            You got it!
-          </div>
-          <div className="text-3xl md:text-4xl font-bold text-white mt-4">{targetNumber}</div>
+          <div className="text-4xl md:text-9xl font-bold mb-4">🎉</div>
+          <div className="text-xl md:text-4xl font-bold text-green-400 mb-2">You got it!</div>
+          <div className="text-3xl md:text-6xl font-bold text-white mt-4">{targetNumber}</div>
         </div>
       ) : (
         // 未猜中：显示猜测界面
@@ -253,11 +251,11 @@ const GuessNumber = ({ max }: { max: number }) => {
 
       {/* 猜测历史记录列表 */}
       {guessHistory.length > 0 && (
-        <div className="mt-4 md:mt-6 w-full max-w-xs">
-          <h3 className="text-base md:text-lg font-medium text-gray-300 mb-2">
-            Guess History ({guessHistory.length} tries)
+        <div className="mt-4 md:mt-6 w-full px-12 py-4 bg-gray-800 rounded-lg">
+          <h3 className="text-2xl md:text-2xl font-medium text-gray-300 mb-2 text-center">
+            Guess History
           </h3>
-          <ul className="bg-gray-800 rounded-lg p-3 max-h-60 overflow-y-auto">
+          <ul className="rounded-lg max-h-60 overflow-y-auto">
             {guessHistory.map((item, index) => (
               <li
                 key={index}
