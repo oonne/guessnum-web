@@ -198,74 +198,82 @@ const GuessNumber = ({ max }: { max: number }) => {
       </h1>
 
       {/* 条件渲染：根据是否猜中显示不同内容 */}
-      {hasWon ? (
-        // 已猜中：显示胜利信息
-        <div className="flex flex-col items-center">
-          <div className="text-4xl md:text-9xl font-bold mb-4">🎉</div>
-          <div className="text-xl md:text-4xl font-bold text-green-400 mb-2">You got it!</div>
-          <div className="text-3xl md:text-6xl font-bold text-white mt-4">{targetNumber}</div>
-        </div>
-      ) : (
-        // 未猜中：显示猜测界面
-        <div className="bg-gray-800 py-4 md:py-8 px-2 md:px-6 rounded-lg flex flex-col items-center w-full overflow-x-auto">
-          {/* 猜测区域：显示当前范围和输入框 */}
-          <div className="flex items-center justify-center w-full mb-4 md:mb-6">
-            {/* 最小值 */}
-            <span className="text-2xl sm:text-4xl md:text-6xl font-medium text-gray-300 w-16 sm:w-24 md:w-48 text-center">
-              {minValue}
-            </span>
-            <span className="mx-1 md:mx-2 text-2xl sm:text-4xl md:text-6xl text-gray-300 w-6 md:w-12">
-              ≤
-            </span>
-
-            {/* 猜测输入框 */}
-            <input
-              ref={inputRef}
-              type="number"
-              value={userGuessValue === null ? '' : userGuessValue}
-              onChange={handleInputChange}
-              onBlur={handleInputBlur}
-              className="w-20 sm:w-32 md:w-48 h-16 sm:h-24 md:h-32 text-center text-2xl sm:text-4xl md:text-6xl font-bold mx-1 md:mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="?"
-            />
-
-            {/* 最大值 */}
-            <span className="mx-1 md:mx-2 text-2xl sm:text-4xl md:text-6xl text-gray-300 w-6 md:w-12">
-              ≤
-            </span>
-            <span className="text-2xl sm:text-4xl md:text-6xl font-medium text-gray-300 w-16 sm:w-24 md:w-48 text-center">
-              {maxValue}
-            </span>
+      <div className="bg-gray-800 py-4 md:py-8 px-2 md:px-6 rounded-lg w-full overflow-x-auto">
+        {hasWon ? (
+          // 已猜中：显示胜利信息
+          <div className="flex flex-col items-center">
+            <div className="text-4xl md:text-9xl font-bold mb-4">🎉</div>
+            <div className="text-xl md:text-4xl font-bold text-green-400 mb-2">You got it!</div>
+            <div className="text-3xl md:text-6xl font-bold text-white mt-4">{targetNumber}</div>
           </div>
+        ) : (
+          // 未猜中：显示猜测界面
+          <div className="flex flex-col items-center">
+            {/* 猜测区域：显示当前范围和输入框 */}
+            <div className="flex items-center justify-center w-full mb-4 md:mb-6">
+              {/* 最小值 */}
+              <span className="text-2xl sm:text-4xl md:text-6xl font-medium text-gray-300 w-16 sm:w-24 md:w-48 text-center">
+                {minValue}
+              </span>
+              <span className="mx-1 md:mx-2 text-2xl sm:text-4xl md:text-6xl text-gray-300 w-6 md:w-12">
+                ≤
+              </span>
 
-          {/* 猜测按钮 */}
-          <button
-            onClick={handleGuess}
-            disabled={!isValidGuess()}
-            className={`w-32 md:w-48 py-3 md:py-6 text-xl md:text-4xl text-center font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors btn-confirm`}
-          >
-            Confirm
-          </button>
-        </div>
-      )}
+              {/* 猜测输入框 */}
+              <input
+                ref={inputRef}
+                type="number"
+                value={userGuessValue === null ? '' : userGuessValue}
+                onChange={handleInputChange}
+                onBlur={handleInputBlur}
+                className="w-20 sm:w-32 md:w-48 h-16 sm:h-24 md:h-32 text-center text-2xl sm:text-4xl md:text-6xl font-bold mx-1 md:mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="?"
+              />
+
+              {/* 最大值 */}
+              <span className="mx-1 md:mx-2 text-2xl sm:text-4xl md:text-6xl text-gray-300 w-6 md:w-12">
+                ≤
+              </span>
+              <span className="text-2xl sm:text-4xl md:text-6xl font-medium text-gray-300 w-16 sm:w-24 md:w-48 text-center">
+                {maxValue}
+              </span>
+            </div>
+
+            {/* 猜测按钮 */}
+            <button
+              onClick={handleGuess}
+              disabled={!isValidGuess()}
+              className={`w-32 md:w-48 py-3 md:py-6 text-xl md:text-4xl text-center font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors btn-confirm`}
+            >
+              Confirm
+            </button>
+          </div>
+        )}
+      </div>
 
       {/* 猜测历史记录列表 */}
       {guessHistory.length > 0 && (
-        <div className="mt-4 md:mt-6 w-full px-12 py-4 bg-gray-800 rounded-lg">
-          <h3 className="text-2xl md:text-2xl font-medium text-gray-300 mb-2 text-center">
+        <div className="mt-4 md:mt-6 w-full px-6 md:px-12 py-4 bg-gray-800 rounded-lg shadow-inner">
+          <h3 className="text-2xl md:text-2xl font-medium text-gray-300 mb-3 text-center border-b border-gray-700 pb-2">
             Guess History
           </h3>
-          <ul className="rounded-lg max-h-60 overflow-y-auto">
+          <ul className="rounded-lg max-h-60 overflow-y-auto divide-y divide-gray-700">
             {guessHistory.map((item, index) => (
               <li
                 key={index}
-                className="flex justify-between py-1 text-xs md:text-sm border-b border-gray-700 last:border-0"
+                className="flex justify-between py-2 text-sm md:text-base hover:bg-gray-700 px-3 transition-colors rounded-md"
               >
-                <span className="text-gray-300">
-                  Try {index + 1}: {item.value}
+                <span className="text-gray-300 font-medium">
+                  Try {index + 1}: <span className="text-white">{item.value}</span>
                 </span>
                 <span
-                  className={`${item.result === 'Correct!' ? 'text-green-400' : item.result === 'Too low' ? 'text-yellow-400' : 'text-red-400'}`}
+                  className={`font-semibold ${
+                    item.result === 'Correct!'
+                      ? 'text-green-400'
+                      : item.result === 'Too low'
+                        ? 'text-yellow-400'
+                        : 'text-red-400'
+                  }`}
                 >
                   {item.result}
                 </span>
