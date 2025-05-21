@@ -81,15 +81,15 @@ const GuessNumber = ({ max }: { max: number }) => {
     }
 
     // 确保输入的是整数（使用Math.floor取整）
-    let newGuess = Math.floor(userGuessValue);
+    let newGuess: number | null = Math.floor(userGuessValue);
 
     // 确保猜测值不小于当前最小值
     if (newGuess < minValue) {
-      newGuess = minValue;
+      newGuess = null;
     }
     // 确保猜测值不大于当前最大值
     else if (newGuess > maxValue) {
-      newGuess = maxValue;
+      newGuess = null;
     }
 
     // 更新猜测值为处理后的合法值
@@ -288,7 +288,7 @@ const GuessNumber = ({ max }: { max: number }) => {
       {guessHistory.length >= 1 && (
         <button
           onClick={initializeGame}
-          className="mt-4 md:mt-8 px-4 md:px-6 py-2 md:py-3 text-base md:text-lg font-medium text-white bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors"
+          className="mt-4 px-4 md:px-6 py-2 md:py-3 text-base md:text-lg font-medium text-white bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors"
         >
           Restart Game
         </button>
