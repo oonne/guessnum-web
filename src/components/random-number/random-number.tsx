@@ -37,14 +37,14 @@ const RandomNumber = ({ max, initialNumber }: { max: number; initialNumber: numb
     <div className="flex flex-col items-center justify-center w-full p-6 bg-[#23272b] border border-gray-700 rounded-lg shadow-lg">
       {/* 标题：显示随机数范围 */}
       <h1 className="text-2xl md:text-4xl font-bold mb-4 md:mb-8 text-center text-white">
-        Generated a random number between 1 and {max}
+        Random number between 1 and {max}
       </h1>
 
       {/* 随机数显示区域 */}
       <div className="bg-gray-800 py-4 md:py-8 px-2 md:px-6 rounded-lg w-full">
         <div className="flex flex-col items-center">
           {/* 随机数显示 */}
-          <div className="text-9xl md:text-6xl font-bold text-white mb-4">{number}</div>
+          <div className="text-6xl md:text-9xl font-bold text-white mb-4">{number}</div>
 
           {/* 按钮区域 */}
           <div className="flex space-x-4 mt-4">
