@@ -9,11 +9,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
 
   return {
-    title: t('tdk_title_guess_number_1_10'),
-    description: t('tdk_description_guess_number_1_10'),
-    keywords: [t('tdk_keywords_guess_number_1_10')],
+    title: t('tdk_title_guess_number_1_100'),
+    description: t('tdk_description_guess_number_1_100'),
+    keywords: [t('tdk_keywords_guess_number_1_100')],
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_DOMIAN}/${locale}/guess-number-1-10`,
+      canonical: `${process.env.NEXT_PUBLIC_DOMIAN}/${locale}/guess-number-1-100`,
     },
   };
 }

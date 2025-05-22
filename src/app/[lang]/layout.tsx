@@ -1,6 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Geist, Geist_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 import { DEFAULT_LANGUAGE } from '@/i18n/config';
