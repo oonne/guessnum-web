@@ -41,9 +41,9 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
 
   return (
     <>
-      <div ref={navRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={navRef} className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-between items-center py-4">
-          <div className="flex flex-wrap items-center gap-4 mb-2 sm:mb-0">
+          <div className="flex flex-wrap items-center gap-4">
             {/* LOGO */}
             <Link
               href={`/${lang}`}
@@ -67,7 +67,7 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
             </nav>
           </div>
 
-          <div className="flex flex-wrap items-center mb-2 sm:mb-0">
+          <div className="flex flex-wrap items-center sm:mb-0">
             {/* 其他导航 - 暂时没有内容所以不显示 */}
             {/* <nav className="hidden sm:flex flex-wrap justify-center gap-x-4 sm:gap-x-6">
               {otherLinks.map((link, index) => (

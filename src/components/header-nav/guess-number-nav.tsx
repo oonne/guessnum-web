@@ -1,4 +1,4 @@
-import { getLocale } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import NavClient from './nav-client';
 import { LinkType } from './types';
 
@@ -8,6 +8,7 @@ import { LinkType } from './types';
  */
 const MainNav = async () => {
   const locale = await getLocale();
+  const t = await getTranslations();
 
   // 主导航
   const mainLinks: LinkType[] = [
@@ -28,7 +29,7 @@ const MainNav = async () => {
         lang={locale}
         mainLinks={mainLinks}
         otherLinks={otherLinks}
-        mainMenuTitle="Guess Number Game"
+        mainMenuTitle={t('title_guess_number')}
       />
     </header>
   );

@@ -17,21 +17,6 @@ const msg: ILangMsgs = {
     ko_KR: '숫자 맞추기',
     vi_VN: 'Đoán số',
   },
-  // 导航栏：随机数
-  link_random_number: {
-    en_US: 'Random Number',
-    zh_CN: '随机数',
-    zh_TW: '隨機數',
-    es_ES: 'Número aleatorio',
-    fr_FR: 'Nombre aléatoire',
-    ru_RU: 'Случайное число',
-    pt_PT: 'Número aleatório',
-    de_DE: 'Zufällige Zahl',
-    ja_JP: 'ランダムな数字',
-    it_IT: 'Numero casuale',
-    ko_KR: '랜덤 숫자',
-    vi_VN: 'Số ngẫu nhiên',
-  },
 };
 
 export default msg;
