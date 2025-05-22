@@ -1,5 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { Geist, Geist_Mono } from 'next/font/google';
 import type { Metadata } from 'next';
 import { DEFAULT_LANGUAGE } from '@/i18n/config';
@@ -23,15 +24,18 @@ const geistMono = Geist_Mono({
  */
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
+  const t = await getTranslations();
+
+  // 设置canonical链接
   let canonical = process.env.NEXT_PUBLIC_DOMIAN;
   if (locale !== DEFAULT_LANGUAGE) {
     canonical = `${process.env.NEXT_PUBLIC_DOMIAN}/${locale}`;
   }
 
   return {
-    title: 'Guess Number Game',
-    description: 'Guess Number Game',
-    keywords: ['Guess Number Game'],
+    title: t('tdk_title_guess_number'),
+    description: t('tdk_description_guess_number'),
+    keywords: [t('tdk_keywords_guess_number')],
     alternates: {
       canonical,
     },

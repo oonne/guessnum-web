@@ -6,11 +6,13 @@ import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from './config';
 import BasicMsgs from './modules/basic';
 import LinkMsgs from './modules/link';
 import TitleMsgs from './modules/title';
+import TdkMsgs from './modules/tdk';
 
 const loadedModules = {
   basic: BasicMsgs,
   link: LinkMsgs,
   title: TitleMsgs,
+  tdk: TdkMsgs,
 };
 
 // 将短语言代码转换为完整的区域设置代码
