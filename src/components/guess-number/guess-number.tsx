@@ -178,11 +178,13 @@ const GuessNumber = ({ max }: { max: number }) => {
         input::-webkit-inner-spin-button {
           -webkit-appearance: none;
           margin: 0;
+          display: none;
         }
 
         /* Firefox */
         input[type='number'] {
           -moz-appearance: textfield;
+          appearance: textfield;
         }
 
         /* 按钮样式 */
@@ -271,12 +273,12 @@ const GuessNumber = ({ max }: { max: number }) => {
                 className="flex items-center justify-center py-2 text-sm md:text-base transition-colors rounded-md"
               >
                 <div className="flex items-center justify-around w-3/5 mx-auto">
-                  <span className="text-gray-300 font-medium">
+                  <span className="text-gray-300 font-medium w-20 text-center">
                     {t('guess_number_try', { n: index + 1 })}:
                   </span>
                   <span className="text-white font-medium">{item.value}</span>
                   <span
-                    className={`font-semibold ${
+                    className={`font-semibold w-20 text-center ${
                       item.result === t('guess_number_correct')
                         ? 'text-green-400'
                         : item.result === t('guess_number_too_low')
