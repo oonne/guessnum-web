@@ -12,6 +12,8 @@ import { MobileMenuProps } from './types';
 const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenuProps) => {
   const pathname = usePathname();
 
+  console.log('otherLinks', otherLinks);
+
   useEffect(() => {
     // 当路径改变或菜单状态变化时控制body滚动
     if (isOpen) {
@@ -25,8 +27,16 @@ const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenu
     };
   }, [isOpen, pathname]);
 
-  if (!isOpen) return null;
+  /*
+   * 隐藏
+   */
+  if (!isOpen) {
+    return null;
+  }
 
+  /*
+   * 显示
+   */
   return (
     <div className="sm:hidden fixed inset-0 top-[var(--header-height,64px)] bg-gradient-to-b from-[#2c3338] to-[#1a1d21] z-40 overflow-y-auto shadow-xl border-t border-white/10 backdrop-blur-sm">
       <div className="px-4 py-6 space-y-6">
@@ -47,7 +57,7 @@ const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenu
           </nav>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-4 shadow-inner">
+        {/* <div className="bg-white/5 rounded-lg p-4 shadow-inner">
           <h3 className="text-white font-semibold mb-4 border-b border-white/20 pb-2">Other</h3>
           <nav className="flex flex-col space-y-4">
             {otherLinks.map((link, index) => (
@@ -60,7 +70,7 @@ const MobileMenu = ({ isOpen, mainLinks, otherLinks, mainMenuTitle }: MobileMenu
               </Link>
             ))}
           </nav>
-        </div>
+        </div> */}
       </div>
     </div>
   );

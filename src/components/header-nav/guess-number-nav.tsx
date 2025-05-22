@@ -18,7 +18,9 @@ const MainNav = async () => {
   ];
 
   // 其他导航
-  const otherLinks: LinkType[] = [{ href: `/${locale}/random`, label: 'Random Number' }];
+  const otherLinks: LinkType[] = [
+    // { href: `/${locale}/other`, label: '其他' }
+  ];
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-[#23272b] text-white shadow-lg z-50">

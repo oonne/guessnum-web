@@ -68,8 +68,8 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
           </div>
 
           <div className="flex flex-wrap items-center mb-2 sm:mb-0">
-            {/* 其他导航 - 仅在PC端显示 */}
-            <nav className="hidden sm:flex flex-wrap justify-center gap-x-4 sm:gap-x-6">
+            {/* 其他导航 - 暂时没有内容所以不显示 */}
+            {/* <nav className="hidden sm:flex flex-wrap justify-center gap-x-4 sm:gap-x-6">
               {otherLinks.map((link, index) => (
                 <Link
                   key={index}
@@ -79,7 +79,7 @@ const NavClient = ({ lang, mainLinks, otherLinks, mainMenuTitle }: NavClientProp
                   {link.label}
                 </Link>
               ))}
-            </nav>
+            </nav> */}
 
             {/* 移动端菜单按钮 */}
             <MenuButton isOpen={isMenuOpen} toggleMenu={toggleMenu} />

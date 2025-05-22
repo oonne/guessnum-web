@@ -264,6 +264,10 @@ const msg: ILangMsgs = {
     ko_KR: '숫자 맞추기 게임 1-10000, 숫자 맞추기, 숫자 맞추기 게임',
     vi_VN: 'Trò chơi đoán số 1-10000, đoán số, Trò chơi đoán số',
   },
+
+  /*
+   * Random number
+   */
 };
 
 export default msg;
