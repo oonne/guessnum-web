@@ -121,6 +121,7 @@ const msg: ILangMsgs = {
 
   /*
    * guess the n digit number game
+   * 猜几位数游戏
    */
   tdk_keywords_guess_number_n_digit: {
     en_US:

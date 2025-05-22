@@ -119,15 +119,15 @@ const GuessNumber = ({ max }: { max: number }) => {
     if (userGuessValue === targetNumber) {
       // 猜中：设置胜利状态
       setHasWon(true);
-      result = 'Correct!';
+      result = t('guess_number_correct');
     } else if (userGuessValue < targetNumber) {
       // 猜小了：更新最小值为当前猜测值，缩小猜测范围
       setMinValue(userGuessValue);
-      result = 'Too low';
+      result = t('guess_number_too_low');
     } else {
       // 猜大了：更新最大值为当前猜测值，缩小猜测范围
       setMaxValue(userGuessValue);
-      result = 'Too high';
+      result = t('guess_number_too_high');
     }
 
     // 添加到猜测历史记录
@@ -208,7 +208,9 @@ const GuessNumber = ({ max }: { max: number }) => {
           // 已猜中：显示胜利信息
           <div className="flex flex-col items-center">
             <div className="text-4xl md:text-9xl font-bold mb-4">🎉</div>
-            <div className="text-xl md:text-4xl font-bold text-green-400 mb-2">You got it!</div>
+            <div className="text-xl md:text-4xl font-bold text-green-400 mb-2">
+              {t('guess_number_win')}
+            </div>
             <div className="text-3xl md:text-6xl font-bold text-white mt-4">{targetNumber}</div>
           </div>
         ) : (
@@ -250,7 +252,7 @@ const GuessNumber = ({ max }: { max: number }) => {
               disabled={!isValidGuess()}
               className={`w-32 md:w-48 py-3 md:py-6 text-xl md:text-4xl text-center font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors btn-confirm`}
             >
-              Confirm
+              {t('btn_confirm')}
             </button>
           </div>
         )}
@@ -260,7 +262,7 @@ const GuessNumber = ({ max }: { max: number }) => {
       {guessHistory.length > 0 && (
         <div className="mt-4 md:mt-6 w-full px-6 md:px-12 py-4 bg-gray-800 rounded-lg shadow-inner">
           <h3 className="text-2xl md:text-2xl font-medium text-gray-300 mb-3 text-center border-b border-gray-700 pb-2">
-            Guess History
+            {t('guess_number_history')}
           </h3>
           <ul className="rounded-lg max-h-60 overflow-y-auto divide-y divide-gray-700">
             {guessHistory.map((item, index) => (
@@ -269,13 +271,15 @@ const GuessNumber = ({ max }: { max: number }) => {
                 className="flex items-center justify-center py-2 text-sm md:text-base transition-colors rounded-md"
               >
                 <div className="flex items-center justify-around w-3/5 mx-auto">
-                  <span className="text-gray-300 font-medium">Try {index + 1}:</span>
+                  <span className="text-gray-300 font-medium">
+                    {t('guess_number_try', { n: index + 1 })}:
+                  </span>
                   <span className="text-white font-medium">{item.value}</span>
                   <span
                     className={`font-semibold ${
-                      item.result === 'Correct!'
+                      item.result === t('guess_number_correct')
                         ? 'text-green-400'
-                        : item.result === 'Too low'
+                        : item.result === t('guess_number_too_low')
                           ? 'text-yellow-400'
                           : 'text-red-400'
                     }`}
@@ -295,7 +299,7 @@ const GuessNumber = ({ max }: { max: number }) => {
           onClick={initializeGame}
           className="mt-4 px-4 md:px-6 py-2 md:py-3 text-base md:text-lg font-medium text-white bg-gray-700 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors"
         >
-          Restart Game
+          {t('btn_restart')}
         </button>
       )}
     </div>
