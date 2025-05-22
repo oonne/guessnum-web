@@ -62,207 +62,80 @@ const msg: ILangMsgs = {
   },
 
   /*
-   * Guess Number 1-10
+   * Guess Number 1-n
    */
-  tdk_title_guess_number_1_10: {
-    en_US: 'Guess a Number up to 10',
-    zh_CN: '猜数字游戏 1-10',
-    zh_TW: '猜數字遊戲 1-10',
-    es_ES: 'Juego de adivinar números 1-10',
-    fr_FR: 'Jeu de devinette de nombres 1-10',
-    ru_RU: 'Игра в угадывание чисел 1-10',
-    pt_PT: 'Jogo de adivinhação de números 1-10',
-    de_DE: 'Zahlenspiel 1-10',
-    ja_JP: '数字当てゲーム 1-10',
-    it_IT: 'Gioco di adivinare i numeri 1-10',
-    ko_KR: '숫자 맞추기 게임 1-10',
-    vi_VN: 'Trò chơi đoán số 1-10',
+  tdk_title_guess_number_1_n: {
+    en_US: 'Guess a Number up to {n}',
+    zh_CN: '猜数字游戏 1-{n}',
+    zh_TW: '猜數字遊戲 1-{n}',
+    es_ES: 'Juego de adivinar números 1-{n}',
+    fr_FR: 'Jeu de devinette de nombres 1-{n}',
+    ru_RU: 'Игра в угадывание чисел 1-{n}',
+    pt_PT: 'Jogo de adivinhação de números 1-{n}',
+    de_DE: 'Zahlenspiel 1-{n}',
+    ja_JP: '数字当てゲーム 1-{n}',
+    it_IT: 'Gioco di adivinare i numeri 1-{n}',
+    ko_KR: '숫자 맞추기 게임 1-{n}',
+    vi_VN: 'Trò chơi đoán số 1-{n}',
   },
-  tdk_description_guess_number_1_10: {
+  tdk_description_guess_number_1_n: {
     en_US:
-      'Guess a Number up to 10. A quick and easy number guessing challenge! Pick a number between 1 and 10 and see if you can guess it right',
-    zh_CN: '猜数字游戏 1-10',
-    zh_TW: '猜數字遊戲 1-10',
+      'Guess a Number up to {n}. A quick and easy number guessing challenge! Pick a number between 1 and {n} and see if you can guess it right',
+    zh_CN: '猜数字游戏 1-{n}',
+    zh_TW: '猜數字遊戲 1-{n}',
     es_ES:
-      'Juego de adivinar números 1-10. Un desafío de adivinar números rápido y fácil! Elige un número entre 1 y 10 y verifica si puedes adivinarlo correctamente',
+      'Juego de adivinar números 1-{n}. Un desafío de adivinar números rápido y fácil! Elige un número entre 1 y {n} y verifica si puedes adivinarlo correctamente',
     fr_FR:
-      'Jeu de devinette de nombres 1-10. Un défi de devinette de nombres rapide et facile! Choisissez un nombre entre 1 et 10 et vérifiez si vous pouvez le deviner correctement',
+      'Jeu de devinette de nombres 1-{n}. Un défi de devinette de nombres rapide et facile! Choisissez un nombre entre 1 et {n} et vérifiez si vous pouvez le deviner correctement',
     ru_RU:
-      'Игра в угадывание чисел 1-10. Веселая и простая игра в угадывание чисел! Выберите число между 1 и 10 и проверьте, сможете ли вы угадать его правильно',
+      'Игра в угадывание чисел 1-{n}. Веселая и простая игра в угадывание чисел! Выберите число между 1 и {n} и проверьте, сможете ли вы угадать его правильно',
     pt_PT:
-      'Jogo de adivinhação de números 1-10. Um desafio de adivinhação de números rápido e fácil! Escolha um número entre 1 e 10 e veja se você consegue adivinhá-lo corretamente',
+      'Jogo de adivinhação de números 1-{n}. Um desafio de adivinhação de números rápido e fácil! Escolha um número entre 1 e {n} e veja se você consegue adivinhá-lo corretamente',
     de_DE:
-      'Zahlenspiel 1-10. Ein lustiges und einfaches Zahlenerraten-Spiel! Wählen Sie eine Zahl zwischen 1 und 10 und sehen Sie, ob Sie sie richtig erraten können',
+      'Zahlenspiel 1-{n}. Ein lustiges und einfaches Zahlenerraten-Spiel! Wählen Sie eine Zahl zwischen 1 und {n} und sehen Sie, ob Sie sie richtig erraten können',
     ja_JP:
-      '数字当てゲーム 1-10. 楽しくて簡単な数字当てゲーム！1から10の数字を選び、正しく当てられるか試してみましょう',
+      '数字当てゲーム 1-{n}. 楽しくて簡単な数字当てゲーム！1から{n}の数字を選び、正しく当てられるか試してみましょう',
     it_IT:
-      'Gioco di adivinare i numeri 1-10. Un gioco di adivinare i numeri rapido e facile! Scegli un numero tra 1 e 10 e vedi se puoi indovinarlo correttamente',
+      'Gioco di adivinare i numeri 1-{n}. Un gioco di adivinare i numeri rapido e facile! Scegli un numero tra 1 e {n} e vedi se puoi indovinarlo correttamente',
     ko_KR:
-      '숫자 맞추기 게임 1-10. 재미있고 간단한 숫자 맞추기 게임! 1에서 10 사이의 숫자를 선택하고 맞출 수 있는지 확인해보세요',
+      '숫자 맞추기 게임 1-{n}. 재미있고 간단한 숫자 맞추기 게임! 1에서 {n} 사이의 숫자를 선택하고 맞출 수 있는지 확인해보세요',
     vi_VN:
-      'Trò chơi đoán số 1-10. Một trò chơi đoán số nhanh và dễ dàng! Chọn một số giữa 1 và 10 và xem liệu bạn có thể đoán nó đúng không',
+      'Trò chơi đoán số 1-{n}. Một trò chơi đoán số nhanh và dễ dàng! Chọn một số giữa 1 và {n} và xem liệu bạn có thể đoán nó đúng không',
   },
-  tdk_keywords_guess_number_1_10: {
+  tdk_keywords_guess_number_1_n: {
     en_US:
-      'Guess a Number up to 10, Guess Number Game 1-10, Number Guess 1-10, Number Guessing 1 10, Number Guessing Game 1 10, Guess a Number Between 1 and 10, 1-10 number games',
-    zh_CN: '猜数字游戏 1-10, 猜数字, 猜数字游戏',
-    zh_TW: '猜數字遊戲 1-10, 猜數字, 猜數字遊戲',
-    es_ES: 'Juego de adivinar números 1-10, adivinar números, Juego de adivinar números',
-    fr_FR: 'Jeu de devinette de nombres 1-10, deviner les nombres, Jeu de devinette de nombres',
-    ru_RU: 'Игра в угадывание чисел 1-10, угадать число, Игра в угадывание чисел',
-    pt_PT: 'Jogo de adivinhação de números 1-10, adivinhar números, Jogo de adivinhação de números',
-    de_DE: 'Zahlenspiel 1-10, Zahl erraten, Zahlenspiel',
-    ja_JP: '数字当てゲーム 1-10, 数字当て, 数字当てゲーム',
-    it_IT: 'Gioco di adivinare i numeri 1-10, indovinare i numeri, Gioco di adivinare i numeri',
-    ko_KR: '숫자 맞추기 게임 1-10, 숫자 맞추기, 숫자 맞추기 게임',
-    vi_VN: 'Trò chơi đoán số 1-10, đoán số, Trò chơi đoán số',
+      'Guess a Number up to {n}, Guess Number Game 1-{n}, Number Guess 1-{n}, Number Guessing 1 {n}, Number Guessing Game 1 {n}, Guess a Number Between 1 and {n}, 1-{n} number games',
+    zh_CN: '猜数字游戏 1-{n}, 猜数字, 猜数字游戏',
+    zh_TW: '猜數字遊戲 1-{n}, 猜數字, 猜數字遊戲',
+    es_ES: 'Juego de adivinar números 1-{n}, adivinar números, Juego de adivinar números',
+    fr_FR: 'Jeu de devinette de nombres 1-{n}, deviner les nombres, Jeu de devinette de nombres',
+    ru_RU: 'Игра в угадывание чисел 1-{n}, угадать число, Игра в угадывание чисел',
+    pt_PT:
+      'Jogo de adivinhação de números 1-{n}, adivinhar números, Jogo de adivinhação de números',
+    de_DE: 'Zahlenspiel 1-{n}, Zahl erraten, Zahlenspiel',
+    ja_JP: '数字当てゲーム 1-{n}, 数字当て, 数字当てゲーム',
+    it_IT: 'Gioco di adivinare i numeri 1-{n}, indovinare i numeri, Gioco di adivinare i numeri',
+    ko_KR: '숫자 맞추기 게임 1-{n}, 숫자 맞추기, 숫자 맞추기 게임',
+    vi_VN: 'Trò chơi đoán số 1-{n}, đoán số, Trò chơi đoán số',
   },
 
   /*
-   * Guess Number 1-100
+   * guess the n digit number game
    */
-  tdk_title_guess_number_1_100: {
-    en_US: 'Guess a Number up to 100',
-    zh_CN: '猜数字游戏 1-100',
-    zh_TW: '猜數字遊戲 1-100',
-    es_ES: 'Juego de adivinar números 1-100',
-    fr_FR: 'Jeu de devinette de nombres 1-100',
-    ru_RU: 'Игра в угадывание чисел 1-100',
-    pt_PT: 'Jogo de adivinhação de números 1-100',
-    de_DE: 'Zahlenspiel 1-100',
-    ja_JP: '数字当てゲーム 1-100',
-    it_IT: 'Gioco di adivinare i numeri 1-100',
-    ko_KR: '숫자 맞추기 게임 1-100',
-    vi_VN: 'Trò chơi đoán số 1-100',
-  },
-  tdk_description_guess_number_1_100: {
+  tdk_keywords_guess_number_n_digit: {
     en_US:
-      'Guess a Number up to 100. A quick and easy number guessing challenge! Pick a number between 1 and 100 and see if you can guess it right',
-    zh_CN: '猜数字游戏 1-100',
-    zh_TW: '猜數字遊戲 1-100',
-    es_ES: 'Juego de adivinar números 1-100',
-    fr_FR: 'Jeu de devinette de nombres 1-100',
-    ru_RU: 'Игра в угадывание чисел 1-100',
-    pt_PT: 'Jogo de adivinhação de números 1-100',
-    de_DE: 'Zahlenspiel 1-100',
-    ja_JP: '数字当てゲーム 1-100',
-    it_IT: 'Gioco di adivinare i numeri 1-100',
-    ko_KR: '숫자 맞추기 게임 1-100',
-    vi_VN: 'Trò chơi đoán số 1-100',
-  },
-  tdk_keywords_guess_number_1_100: {
-    en_US:
-      'Guess a Number up to 100, Guess Number Game 1-100, Number Guess 1-100, Number Guessing 1 100, Number Guessing Game 1 100, Guess a Number Between 1 and 100, 1-100 number games, guess the 2 digit number game',
-    zh_CN: '猜数字游戏 1-100, 猜数字, 猜数字游戏',
-    zh_TW: '猜數字遊戲 1-100, 猜數字, 猜數字遊戲',
-    es_ES: 'Juego de adivinar números 1-100, adivinar números, Juego de adivinar números',
-    fr_FR: 'Jeu de devinette de nombres 1-100, deviner les nombres, Jeu de devinette de nombres',
-    ru_RU: 'Игра в угадывание чисел 1-100, угадать число, Игра в угадывание чисел',
-    pt_PT:
-      'Jogo de adivinhação de números 1-100, adivinhar números, Jogo de adivinhação de números',
-    de_DE: 'Zahlenspiel 1-100, Zahl erraten, Zahlenspiel',
-    ja_JP: '数字当てゲーム 1-100, 数字当て, 数字当てゲーム',
-    it_IT: 'Gioco di adivinare i numeri 1-100, indovinare i numeri, Gioco di adivinare i numeri',
-    ko_KR: '숫자 맞추기 게임 1-100, 숫자 맞추기, 숫자 맞추기 게임',
-    vi_VN: 'Trò chơi đoán số 1-100, đoán số, Trò chơi đoán số',
-  },
-
-  /*
-   * Guess Number 1-1000
-   */
-  tdk_title_guess_number_1_1000: {
-    en_US: 'Guess a Number up to 1000',
-    zh_CN: '猜数字游戏 1-1000',
-    zh_TW: '猜數字遊戲 1-1000',
-    es_ES: 'Juego de adivinar números 1-1000',
-    fr_FR: 'Jeu de devinette de nombres 1-1000',
-    ru_RU: 'Игра в угадывание чисел 1-1000',
-    pt_PT: 'Jogo de adivinhação de números 1-1000',
-    de_DE: 'Zahlenspiel 1-1000',
-    ja_JP: '数字当てゲーム 1-1000',
-    it_IT: 'Gioco di adivinare i numeri 1-1000',
-    ko_KR: '숫자 맞추기 게임 1-1000',
-    vi_VN: 'Trò chơi đoán số 1-1000',
-  },
-  tdk_description_guess_number_1_1000: {
-    en_US:
-      'Guess a Number up to 1000. A quick and easy number guessing challenge! Pick a number between 1 and 1000 and see if you can guess it right',
-    zh_CN: '猜数字游戏 1-1000',
-    zh_TW: '猜數字遊戲 1-1000',
-    es_ES: 'Juego de adivinar números 1-1000',
-    fr_FR: 'Jeu de devinette de nombres 1-1000',
-    ru_RU: 'Игра в угадывание чисел 1-1000',
-    pt_PT: 'Jogo de adivinhação de números 1-1000',
-    de_DE: 'Zahlenspiel 1-1000',
-    ja_JP: '数字当てゲーム 1-1000',
-    it_IT: 'Gioco di adivinare i numeri 1-1000',
-    ko_KR: '숫자 맞추기 게임 1-1000',
-    vi_VN: 'Trò chơi đoán số 1-1000',
-  },
-  tdk_keywords_guess_number_1_1000: {
-    en_US:
-      'Guess a Number up to 1000, Guess Number Game 1-1000, Number Guess 1-1000, Number Guessing 1 1000, Number Guessing Game 1 1000, Guess a Number Between 1 and 1000, 1-1000 number games, guess the 3 digit number game',
-    zh_CN: '猜数字游戏 1-1000, 猜数字, 猜数字游戏',
-    zh_TW: '猜數字遊戲 1-1000, 猜數字, 猜數字遊戲',
-    es_ES: 'Juego de adivinar números 1-1000, adivinar números, Juego de adivinar números',
-    fr_FR: 'Jeu de devinette de nombres 1-1000, deviner les nombres, Jeu de devinette de nombres',
-    ru_RU: 'Игра в угадывание чисел 1-1000, угадать число, Игра в угадывание чисел',
-    pt_PT:
-      'Jogo de adivinhação de números 1-1000, adivinhar números, Jogo de adivinhação de números',
-    de_DE: 'Zahlenspiel 1-1000, Zahl erraten, Zahlenspiel',
-    ja_JP: '数字当てゲーム 1-1000, 数字当て, 数字当てゲーム',
-    it_IT: 'Gioco di adivinare i numeri 1-1000, indovinare i numeri, Gioco di adivinare i numeri',
-    ko_KR: '숫자 맞추기 게임 1-1000, 숫자 맞추기, 숫자 맞추기 게임',
-    vi_VN: 'Trò chơi đoán số 1-1000, đoán số, Trò chơi đoán số',
-  },
-
-  /*
-   * Guess Number 1-10000
-   */
-  tdk_title_guess_number_1_10000: {
-    en_US: 'Guess a Number up to 10000',
-    zh_CN: '猜数字游戏 1-10000',
-    zh_TW: '猜數字遊戲 1-10000',
-    es_ES: 'Juego de adivinar números 1-10000',
-    fr_FR: 'Jeu de devinette de nombres 1-10000',
-    ru_RU: 'Игра в угадывание чисел 1-10000',
-    pt_PT: 'Jogo de adivinhação de números 1-10000',
-    de_DE: 'Zahlenspiel 1-10000',
-    ja_JP: '数字当てゲーム 1-10000',
-    it_IT: 'Gioco di adivinare i numeri 1-10000',
-    ko_KR: '숫자 맞추기 게임 1-10000',
-    vi_VN: 'Trò chơi đoán số 1-10000',
-  },
-  tdk_description_guess_number_1_10000: {
-    en_US:
-      'Guess a Number up to 10000. A quick and easy number guessing challenge! Pick a number between 1 and 10000 and see if you can guess it right',
-    zh_CN: '猜数字游戏 1-10000',
-    zh_TW: '猜數字遊戲 1-10000',
-    es_ES: 'Juego de adivinar números 1-10000',
-    fr_FR: 'Jeu de devinette de nombres 1-10000',
-    ru_RU: 'Игра в угадывание чисел 1-10000',
-    pt_PT: 'Jogo de adivinhação de números 1-10000',
-    de_DE: 'Zahlenspiel 1-10000',
-    ja_JP: '数字当てゲーム 1-10000',
-    it_IT: 'Gioco di adivinare i numeri 1-10000',
-    ko_KR: '숫자 맞추기 게임 1-10000',
-    vi_VN: 'Trò chơi đoán số 1-10000',
-  },
-  tdk_keywords_guess_number_1_10000: {
-    en_US:
-      'Guess a Number up to 10000, Guess Number Game 1-10000, Number Guess 1-10000, Number Guessing 1 10000, Number Guessing Game 1 10000, Guess a Number Between 1 and 10000, 1-10000 number games, guess the 4 digit number game',
-    zh_CN: '猜数字游戏 1-10000, 猜数字, 猜数字游戏',
-    zh_TW: '猜數字遊戲 1-10000, 猜數字, 猜數字遊戲',
-    es_ES: 'Juego de adivinar números 1-10000, adivinar números, Juego de adivinar números',
-    fr_FR: 'Jeu de devinette de nombres 1-10000, deviner les nombres, Jeu de devinette de nombres',
-    ru_RU: 'Игра в угадывание чисел 1-10000, угадать число, Игра в угадывание чисел',
-    pt_PT:
-      'Jogo de adivinhação de números 1-10000, adivinhar números, Jogo de adivinhação de números',
-    de_DE: 'Zahlenspiel 1-10000, Zahl erraten, Zahlenspiel',
-    ja_JP: '数字当てゲーム 1-10000, 数字当て, 数字当てゲーム',
-    it_IT: 'Gioco di adivinare i numeri 1-10000, indovinare i numeri, Gioco di adivinare i numeri',
-    ko_KR: '숫자 맞추기 게임 1-10000, 숫자 맞추기, 숫자 맞추기 게임',
-    vi_VN: 'Trò chơi đoán số 1-10000, đoán số, Trò chơi đoán số',
+      'Guess the {n} digit number game, Guess the {n} digit number, Guess a {n} digit number game, Guess a {n} digit number',
+    zh_CN: '猜数字游戏 {n} 位数',
+    zh_TW: '猜數字遊戲 {n} 位數',
+    es_ES: 'Juego de adivinar números {n} dígitos',
+    fr_FR: 'Jeu de devinette de nombres {n} chiffres',
+    ru_RU: 'Игра в угадывание чисел {n} цифр',
+    pt_PT: 'Jogo de adivinhação de números {n} dígitos',
+    de_DE: 'Zahlenspiel {n} Ziffern',
+    ja_JP: '数字当てゲーム {n} 桁',
+    it_IT: 'Gioco di adivinare i numeri {n} cifre',
+    ko_KR: '숫자 맞추기 게임 {n} 자리',
+    vi_VN: 'Trò chơi đoán số {n} chữ số',
   },
 };
 

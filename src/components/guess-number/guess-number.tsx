@@ -1,5 +1,5 @@
 'use client';
-
+import { useTranslations } from 'next-intl';
 import { useState, useEffect, useRef, ChangeEvent, useCallback } from 'react';
 import { Utils } from '@/utils';
 
@@ -10,6 +10,8 @@ const { randomWithin } = Utils;
  * @param max 随机数的最大范围
  */
 const GuessNumber = ({ max }: { max: number }) => {
+  const t = useTranslations();
+
   // === 状态管理 ===
   // 目标数字：需要猜测的随机数
   const [targetNumber, setTargetNumber] = useState<number>(0);
@@ -197,7 +199,7 @@ const GuessNumber = ({ max }: { max: number }) => {
 
       {/* 标题：显示猜数字范围 */}
       <h1 className="text-2xl md:text-4xl font-bold mb-4 md:mb-8 text-center text-white">
-        Guess a number between 1 and {max}
+        {t('title_guess_number_1_n', { n: max })}
       </h1>
 
       {/* 条件渲染：根据是否猜中显示不同内容 */}

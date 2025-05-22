@@ -9,9 +9,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
 
   return {
-    title: t('tdk_title_guess_number_1_10000'),
-    description: t('tdk_description_guess_number_1_10000'),
-    keywords: [t('tdk_keywords_guess_number_1_10000')],
+    title: t('tdk_title_guess_number_1_n', { n: 10000 }),
+    description: t('tdk_description_guess_number_1_n', { n: 10000 }),
+    keywords: [
+      t('tdk_keywords_guess_number_1_n', { n: 10000 }),
+      t('tdk_keywords_guess_number_n_digit', { n: 4 }),
+    ],
     alternates: {
       canonical: `${process.env.NEXT_PUBLIC_DOMIAN}/${locale}/guess-number-1-10000`,
     },
