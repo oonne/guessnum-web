@@ -1,16 +1,10 @@
-import { getDictionary } from '@/i18n';
 import HeaderNav from '@/components/header-nav/guess-number-nav';
 import GuessNumber from '@/components/guess-number/guess-number';
 import PageLayout from '@/components/layout/page-layout';
 
-const Home = async ({ params }: { params: Promise<{ lang: string }> }) => {
-  const { lang } = await params;
-  const dict = await getDictionary(lang as LangCode);
-
-  console.log(dict.link_guess_number_game);
-
+const Home = () => {
   return (
-    <PageLayout header={<HeaderNav params={params} />}>
+    <PageLayout header={<HeaderNav />}>
       <GuessNumber max={100} />
     </PageLayout>
   );

@@ -1,11 +1,16 @@
 import 'server-only';
+import { getRequestConfig } from 'next-intl/server';
+import { hasLocale } from 'next-intl';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from './config';
 
 import BasicMsgs from './modules/basic';
 import LinkMsgs from './modules/link';
+import TitleMsgs from './modules/title';
 
 const loadedModules = {
   basic: BasicMsgs,
   link: LinkMsgs,
+  title: TitleMsgs,
 };
 
 // 将短语言代码转换为完整的区域设置代码
@@ -28,7 +33,11 @@ const getFullLocale = (locale: string): LocaleType => {
   return localeMap[locale] || 'en_US';
 };
 
-export const getDictionary = async (locale: string) => {
+export default getRequestConfig(async ({ requestLocale }) => {
+  // Typically corresponds to the `[locale]` segment
+  const requested = await requestLocale;
+
+  const locale = hasLocale(SUPPORTED_LANGUAGES, requested) ? requested : DEFAULT_LANGUAGE;
   const localeKey = getFullLocale(locale);
   const dictionary: Record<string, string> = {};
 
@@ -39,5 +48,8 @@ export const getDictionary = async (locale: string) => {
     });
   });
 
-  return dictionary;
-};
+  return {
+    locale,
+    messages: dictionary,
+  };
+});
