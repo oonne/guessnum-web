@@ -152,7 +152,7 @@ const msg: ILangMsgs = {
   },
   tdk_keywords_guess_number_1_100: {
     en_US:
-      'Guess a Number up to 100, Guess Number Game 1-100, Number Guess 1-100, Number Guessing 1 100, Number Guessing Game 1 100, Guess a Number Between 1 and 100, 1-100 number games',
+      'Guess a Number up to 100, Guess Number Game 1-100, Number Guess 1-100, Number Guessing 1 100, Number Guessing Game 1 100, Guess a Number Between 1 and 100, 1-100 number games, guess the 2 digit number game',
     zh_CN: '猜数字游戏 1-100, 猜数字, 猜数字游戏',
     zh_TW: '猜數字遊戲 1-100, 猜數字, 猜數字遊戲',
     es_ES: 'Juego de adivinar números 1-100, adivinar números, Juego de adivinar números',
@@ -201,7 +201,7 @@ const msg: ILangMsgs = {
   },
   tdk_keywords_guess_number_1_1000: {
     en_US:
-      'Guess a Number up to 1000, Guess Number Game 1-1000, Number Guess 1-1000, Number Guessing 1 1000, Number Guessing Game 1 1000, Guess a Number Between 1 and 1000, 1-1000 number games',
+      'Guess a Number up to 1000, Guess Number Game 1-1000, Number Guess 1-1000, Number Guessing 1 1000, Number Guessing Game 1 1000, Guess a Number Between 1 and 1000, 1-1000 number games, guess the 3 digit number game',
     zh_CN: '猜数字游戏 1-1000, 猜数字, 猜数字游戏',
     zh_TW: '猜數字遊戲 1-1000, 猜數字, 猜數字遊戲',
     es_ES: 'Juego de adivinar números 1-1000, adivinar números, Juego de adivinar números',
@@ -250,7 +250,7 @@ const msg: ILangMsgs = {
   },
   tdk_keywords_guess_number_1_10000: {
     en_US:
-      'Guess a Number up to 10000, Guess Number Game 1-10000, Number Guess 1-10000, Number Guessing 1 10000, Number Guessing Game 1 10000, Guess a Number Between 1 and 10000, 1-10000 number games',
+      'Guess a Number up to 10000, Guess Number Game 1-10000, Number Guess 1-10000, Number Guessing 1 10000, Number Guessing Game 1 10000, Guess a Number Between 1 and 10000, 1-10000 number games, guess the 4 digit number game',
     zh_CN: '猜数字游戏 1-10000, 猜数字, 猜数字游戏',
     zh_TW: '猜數字遊戲 1-10000, 猜數字, 猜數字遊戲',
     es_ES: 'Juego de adivinar números 1-10000, adivinar números, Juego de adivinar números',
@@ -264,10 +264,6 @@ const msg: ILangMsgs = {
     ko_KR: '숫자 맞추기 게임 1-10000, 숫자 맞추기, 숫자 맞추기 게임',
     vi_VN: 'Trò chơi đoán số 1-10000, đoán số, Trò chơi đoán số',
   },
-
-  /*
-   * Random number
-   */
 };
 
 export default msg;
