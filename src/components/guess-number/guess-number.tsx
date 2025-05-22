@@ -176,7 +176,7 @@ const GuessNumber = ({ max }: { max: number }) => {
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
-          -webkit-appearance: none;
+          -webkit-appearance: none !important;
           margin: 0;
           display: none;
         }
@@ -235,6 +235,11 @@ const GuessNumber = ({ max }: { max: number }) => {
                 value={userGuessValue === null ? '' : userGuessValue}
                 onChange={handleInputChange}
                 onBlur={handleInputBlur}
+                onKeyDown={e => {
+                  if (e.key === 'Enter' && isValidGuess()) {
+                    handleGuess();
+                  }
+                }}
                 className="w-20 sm:w-32 md:w-48 h-16 sm:h-24 md:h-32 text-center text-2xl sm:text-4xl md:text-6xl font-bold mx-1 md:mx-2 bg-gray-800 text-white border-2 border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="?"
               />
@@ -266,7 +271,7 @@ const GuessNumber = ({ max }: { max: number }) => {
           <h3 className="text-2xl md:text-2xl font-medium text-gray-300 mb-3 text-center border-b border-gray-700 pb-2">
             {t('guess_number_history')}
           </h3>
-          <ul className="rounded-lg max-h-60 overflow-y-auto divide-y divide-gray-700">
+          <ul className="rounded-lg divide-y divide-gray-700">
             {guessHistory.map((item, index) => (
               <li
                 key={index}
