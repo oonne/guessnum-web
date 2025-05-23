@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 处理其他页面
     
     urls.push({
-      url: `${domain}/${lang}/page-1`,
+      url: `${domain}/${lang}/guess-number-1-10`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
@@ -53,7 +53,58 @@ export default function sitemap(): MetadataRoute.Sitemap {
           ...Object.fromEntries(
             SUPPORTED_LANGUAGES.map(l => [
               l,
-              `${domain}/${l}/page-1`,
+              `${domain}/${l}/guess-number-1-10`,
+            ]),
+          ),
+        },
+      },
+    })
+    
+    urls.push({
+      url: `${domain}/${lang}/guess-number-1-100`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+      alternates: {
+        languages: {
+          ...Object.fromEntries(
+            SUPPORTED_LANGUAGES.map(l => [
+              l,
+              `${domain}/${l}/guess-number-1-100`,
+            ]),
+          ),
+        },
+      },
+    })
+    
+    urls.push({
+      url: `${domain}/${lang}/guess-number-1-1000`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+      alternates: {
+        languages: {
+          ...Object.fromEntries(
+            SUPPORTED_LANGUAGES.map(l => [
+              l,
+              `${domain}/${l}/guess-number-1-1000`,
+            ]),
+          ),
+        },
+      },
+    })
+    
+    urls.push({
+      url: `${domain}/${lang}/guess-number-1-10000`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+      alternates: {
+        languages: {
+          ...Object.fromEntries(
+            SUPPORTED_LANGUAGES.map(l => [
+              l,
+              `${domain}/${l}/guess-number-1-10000`,
             ]),
           ),
         },
