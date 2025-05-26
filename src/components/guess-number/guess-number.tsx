@@ -2,6 +2,7 @@
 import { useTranslations } from 'next-intl';
 import { useState, useEffect, useRef, ChangeEvent, useCallback } from 'react';
 import { Utils } from '@/utils';
+import { calculateWinPercentage } from './probability-calculation';
 
 const { randomWithin } = Utils;
 
@@ -214,6 +215,11 @@ const GuessNumber = ({ max }: { max: number }) => {
               {t('guess_number_win')}
             </div>
             <div className="text-3xl md:text-6xl font-bold text-white mt-4">{targetNumber}</div>
+            <div className="text-xl md:text-3xl font-bold text-white mt-6">
+              {t('guess_number_win_percentage', {
+                percentage: calculateWinPercentage(max, guessHistory.length),
+              })}
+            </div>
           </div>
         ) : (
           // 未猜中：显示猜测界面

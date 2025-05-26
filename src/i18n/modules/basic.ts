@@ -32,6 +32,21 @@ const msg: ILangMsgs = {
     ko_KR: '맞추셨습니다!',
     vi_VN: 'Bạn đã đoán đúng!',
   },
+  // 战胜了xx%的玩家
+  guess_number_win_percentage: {
+    en_US: 'You beat {percentage}% of players!',
+    zh_CN: '战胜了{percentage}%的玩家！',
+    zh_TW: '戰勝了{percentage}%的玩家！',
+    es_ES: '¡Venciste a {percentage}% de jugadores!',
+    fr_FR: 'Vous avez battu {percentage}% des joueurs!',
+    ru_RU: 'Вы победили {percentage}% игроков!',
+    pt_PT: 'Você venceu {percentage}% dos jogadores!',
+    de_DE: 'Sie haben {percentage}% der Spieler übertroffen!',
+    ja_JP: '{percentage}%のプレーヤーを打ち負かしました！',
+    it_IT: 'Hai battuto {percentage}% dei giocatori!',
+    ko_KR: '{percentage}%의 플레이어를 이겼습니다!',
+    vi_VN: 'Bạn đã vượt qua {percentage}% người chơi!',
+  },
 
   // 确认按钮
   btn_confirm: {
