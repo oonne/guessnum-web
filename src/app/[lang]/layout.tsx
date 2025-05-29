@@ -27,9 +27,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
 
   // 设置canonical链接
-  let canonical = process.env.NEXT_PUBLIC_DOMIAN;
+  let canonical = process.env.NEXT_PUBLIC_DOMAIN;
   if (locale !== DEFAULT_LANGUAGE) {
-    canonical = `${process.env.NEXT_PUBLIC_DOMIAN}/${locale}`;
+    canonical = `${process.env.NEXT_PUBLIC_DOMAIN}/${locale}`;
   }
 
   return {

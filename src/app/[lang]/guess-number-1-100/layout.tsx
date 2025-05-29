@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
       t('tdk_keywords_guess_number_n_digit', { n: 2 }),
     ],
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_DOMIAN}/${locale}/guess-number-1-100`,
+      canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/${locale}/guess-number-1-100`,
     },
   };
 }

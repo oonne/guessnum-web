@@ -1,12 +1,12 @@
-import type { MetadataRoute } from 'next'
-import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '@/i18n/config'
+import type { MetadataRoute } from 'next';
+import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '@/i18n/config';
 
 /*
  * 生成 sitemap
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const domain = process.env.NEXT_PUBLIC_DOMIAN || ''
-  const urls: MetadataRoute.Sitemap = []
+  const domain = process.env.NEXT_PUBLIC_DOMAIN || '';
+  const urls: MetadataRoute.Sitemap = [];
 
   // 为每种语言生成 URL
   SUPPORTED_LANGUAGES.forEach(lang => {
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             ),
           },
         },
-      })
+      });
     } else {
       urls.push({
         url: `${domain}/${lang}`,
@@ -38,11 +38,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             ),
           },
         },
-      })
+      });
     }
 
     // 处理其他页面
-    
+
     urls.push({
       url: `${domain}/${lang}/guess-number-1-10`,
       lastModified: new Date(),
@@ -51,15 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           ...Object.fromEntries(
-            SUPPORTED_LANGUAGES.map(l => [
-              l,
-              `${domain}/${l}/guess-number-1-10`,
-            ]),
+            SUPPORTED_LANGUAGES.map(l => [l, `${domain}/${l}/guess-number-1-10`]),
           ),
         },
       },
-    })
-    
+    });
+
     urls.push({
       url: `${domain}/${lang}/guess-number-1-100`,
       lastModified: new Date(),
@@ -68,15 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           ...Object.fromEntries(
-            SUPPORTED_LANGUAGES.map(l => [
-              l,
-              `${domain}/${l}/guess-number-1-100`,
-            ]),
+            SUPPORTED_LANGUAGES.map(l => [l, `${domain}/${l}/guess-number-1-100`]),
           ),
         },
       },
-    })
-    
+    });
+
     urls.push({
       url: `${domain}/${lang}/guess-number-1-1000`,
       lastModified: new Date(),
@@ -85,15 +79,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           ...Object.fromEntries(
-            SUPPORTED_LANGUAGES.map(l => [
-              l,
-              `${domain}/${l}/guess-number-1-1000`,
-            ]),
+            SUPPORTED_LANGUAGES.map(l => [l, `${domain}/${l}/guess-number-1-1000`]),
           ),
         },
       },
-    })
-    
+    });
+
     urls.push({
       url: `${domain}/${lang}/guess-number-1-10000`,
       lastModified: new Date(),
@@ -102,15 +93,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       alternates: {
         languages: {
           ...Object.fromEntries(
-            SUPPORTED_LANGUAGES.map(l => [
-              l,
-              `${domain}/${l}/guess-number-1-10000`,
-            ]),
+            SUPPORTED_LANGUAGES.map(l => [l, `${domain}/${l}/guess-number-1-10000`]),
           ),
         },
       },
-    })
-  })
+    });
+  });
 
-  return urls
+  return urls;
 }
