@@ -46,11 +46,8 @@ Let's analyze three different approaches to the number guessing game and see how
   - In the worst case, we might keep guessing numbers we've already tried
   - For example, if the number is 100, we might keep guessing numbers between 1-99
   - Only when we've tried all other numbers will we finally guess 100
-- Average case: Let's analyze this mathematically!
-  - We can define E(n) as the expected number of guesses when the range length is n
-  - The recursive formula is:
-    E(n) = 1 + (1/n) \* Σ[E(k-1) if guess > target, E(n-k) if guess < target, 0 if correct]
-  - Through simulation, for n=100, the expected number of guesses is approximately 8.05
+- Average case: The mathematical formula is quite complex, but here's the result:
+  - Through mathematical analysis and simulation, for n=100, the expected number of guesses is approximately 8.05
   - This is much better than the worst case, but still not as efficient as binary search
 - Pros: No pattern to follow
 - Cons:
